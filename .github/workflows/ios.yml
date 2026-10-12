@@ -1,0 +1,99 @@
+name: iOS
+
+# Two jobs: the page is checked first, and the ipa is only built if it passed.
+# A planner that opens on the wrong JOUR is worse than a build that fails, and a
+# broken script does not stop a web page from loading — it just leaves a blank
+# sheet — so nothing but a check of the real page catches it.
+#
+# The ipa is unsigned on purpose: unsigned means it can be installed with a
+# sideloading tool, not from the app store; signing needs a certificate and a
+# provisioning profile, which live in repository secrets and are not set up here.
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+jobs:
+  page:
+    name: the page itself
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+          cache: npm
+
+      - name: Install the check's dependencies
+        run: npm ci
+
+      # Loads web/index.html in a real DOM, with the clock pinned, and holds it to
+      # school_data_2026_2027_combined.json: rotations, courses, closures, the four
+      # views, and the notebook.
+      - name: Self-check the page against its own school data
+        run: npm run selfcheck
+
+  ipa:
+    name: the ipa
+    needs: page
+    # 'macos-15' carries xcode 16. github retires runner images every year or
+    # two, so if this label disappears the job fails at "Toolchain" below and
+    # the label needs bumping to the current macos-NN image.
+    runs-on: macos-15
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Install XcodeGen
+        run: brew install xcodegen
+
+      - name: Toolchain
+        run: |
+          xcodebuild -version
+          xcodegen --version
+
+      - name: Generate the Xcode project
+        run: xcodegen generate --spec ios/project.yml
+
+      - name: Archive the app, unsigned
+        run: |
+          xcodebuild \
+            -project ios/Leatherbound.xcodeproj \
+            -scheme Leatherbound \
+            -configuration Release \
+            -sdk iphoneos \
+            -destination 'generic/platform=iOS' \
+            -archivePath "$RUNNER_TEMP/Leatherbound.xcarchive" \
+            CODE_SIGN_IDENTITY="" \
+            CODE_SIGNING_REQUIRED=NO \
+            CODE_SIGNING_ALLOWED=NO \
+            archive
+
+      - name: Check the web app really is in the bundle
+        run: |
+          APP="$RUNNER_TEMP/Leatherbound.xcarchive/Products/Applications/Leatherbound.app"
+          test -d "$APP"
+          WEB=""
+          for d in "$APP/web" "$APP/Web"; do [ -d "$d" ] && WEB="$d"; done
+          test -n "$WEB" || { echo "the web folder was not copied into the bundle"; exit 1; }
+          for f in index.html css/day.css js/boot.js fonts/playfair-display-latin.woff2 icon-180.png; do
+            test -f "$WEB/$f" || { echo "missing $f in the bundled page"; exit 1; }
+          done
+          # the asset catalogue is what turns AppIcon-1024.png into the icon on the
+          # home screen; if it did not compile, the app installs with a blank icon
+          test -f "$APP/Assets.car" || { echo "the app icon did not compile into the bundle"; exit 1; }
+
+      - name: Package the ipa
+        run: |
+          APP="$RUNNER_TEMP/Leatherbound.xcarchive/Products/Applications/Leatherbound.app"
+          mkdir -p build/Payload
+          cp -R "$APP" build/Payload/
+          cd build
+          zip -qry Leatherbound-unsigned.ipa Payload
+          ls -la Leatherbound-unsigned.ipa
+
+      - uses: actions/upload-artifact@v4
+        with:
+          name: Leatherbound-unsigned-ipa
+          path: build/Leatherbound-unsigned.ipa

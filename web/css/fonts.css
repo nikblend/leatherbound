@@ -1,0 +1,34 @@
+/* ===== fonts.css — the three faces, self-hosted =====
+   Nothing here touches the network: the app must look like itself on a plane,
+   in a lift, or with the wifi off.  Subsets were cut to the Latin ranges the
+   app actually prints, with the French accents the school data needs.
+
+   Patrick Hand    your own hand    — everything you write
+   Architects Daughter  the planner's lettering — labels, times, days, notes-to-self
+   Playfair Display     printed matter — the cover, the timetable, the year sheet
+
+   Licences: OFL-PatrickHand.txt · OFL-ArchitectsDaughter.txt · OFL-PlayfairDisplay.txt
+
+   The other faces in fonts-i-like/ were looked at and left out, because the page has
+   exactly three typographic jobs and each is already taken by the face that does it
+   best: Coming Soon is a second handwriting next to Patrick Hand, Frijole and Pieces
+   of Eight and Dwarven Stonecraft are novelty faces that would fight the paper, and
+   Burbank Big Condensed is a display face for a screen, not a page. Ashley Script is
+   the one that could still earn a place — as the lettered cover of the book, if the
+   app ever grows one. */
+
+@font-face{
+  font-family:'Patrick Hand';font-style:normal;font-weight:400;font-display:swap;
+  src:url(../fonts/patrick-hand-latin.woff2) format('woff2');
+  unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+0178,U+02C6,U+02DA,U+02DC,U+2013-2014,U+2018-201D,U+2026,U+20AC;
+}
+@font-face{
+  font-family:'Architects Daughter';font-style:normal;font-weight:400;font-display:swap;
+  src:url(../fonts/architects-daughter-latin.woff2) format('woff2');
+  unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+0178,U+02C6,U+02DA,U+02DC,U+2013-2014,U+2018-201D,U+2026,U+20AC;
+}
+@font-face{
+  font-family:'Playfair Display';font-style:normal;font-weight:400 900;font-display:swap;
+  src:url(../fonts/playfair-display-latin.woff2) format('woff2');
+  unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+2000-206F,U+20AC,U+2122;
+}

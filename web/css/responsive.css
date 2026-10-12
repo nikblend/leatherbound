@@ -1,0 +1,17 @@
+/* ===== responsive.css — Narrow screens, reduced motion ===== */
+.yc.term.today{box-shadow:0 0 0 1.5px var(--vermilion),inset 0 -3.5px 0 #b8902f}
+.ylegend{flex:none;display:flex;flex-wrap:wrap;gap:6px 16px;margin-top:7px}
+.ylegend span{display:flex;align-items:center;gap:6px;font:600 12px/1 system-ui,-apple-system,sans-serif;letter-spacing:.05em;text-transform:uppercase;color:#8a7a5c}
+.ysw{flex:none;display:block;width:11px;height:11px;border-radius:2px;box-shadow:inset 0 0 0 .5px rgba(60,35,8,.25)}
+@media (max-width:480px){
+  :root{padding:0}
+  body{display:block}
+  .device{width:100%;height:100%;border-radius:0;padding:0;box-shadow:none;background:none;zoom:1!important}
+  .screen{border-radius:0}
+  .island,.status{display:none}
+  header{padding-top:calc(env(safe-area-inset-top,0px) + 4px)}
+  main{padding-bottom:calc(env(safe-area-inset-bottom,0px) + 110px)}
+  .fab{bottom:calc(env(safe-area-inset-bottom,0px) + 16px)}
+  .note{padding-bottom:calc(env(safe-area-inset-bottom,0px) + 20px)}
+}
+@media (prefers-reduced-motion:reduce){.sheet.turn{animation:none}.note{transition:none}}

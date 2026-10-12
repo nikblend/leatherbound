@@ -1,0 +1,37 @@
+/* ===== shell.css — The book itself: device frame, gilt header, view menu, navigation ===== */
+
+.device{width:412px;height:866px;flex:none;background:linear-gradient(145deg,#3a3a3c,#0c0c0d 60%,#2a2a2c);border-radius:56px;padding:11px;box-shadow:0 30px 60px rgba(0,0,0,.45),0 0 0 1.5px #555 inset,0 2px 0 rgba(255,255,255,.15) inset}
+.screen{position:relative;height:100%;border-radius:46px;overflow:hidden;display:flex;flex-direction:column;background:var(--paper)}
+.island{position:absolute;top:10px;left:50%;width:104px;height:28px;margin-left:-52px;border-radius:20px;background:#000;z-index:10}
+
+header{position:relative;z-index:5;flex:none;padding:0 20px 24px;background:var(--g1),radial-gradient(ellipse at 30% 0%,rgba(255,236,190,.28),transparent 60%),linear-gradient(180deg,#c9a76b,#b8935a 55%,#a07b43);box-shadow:inset 0 1px 0 rgba(255,215,160,.45)}
+header::before{content:'';position:absolute;left:0;right:0;bottom:12px;height:22px;background:linear-gradient(180deg,rgba(90,58,20,0),rgba(90,58,20,.3));pointer-events:none}
+/* Saddle stitching: slanted, rounded waxed-thread stitches sitting in a pressed groove, with needle holes and a soft shadow under each stitch */
+header::after{content:'';position:absolute;left:12px;right:12px;bottom:17px;height:8px;background:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'><path d='M0 4.5H12' stroke='%232a1604' stroke-opacity='.3' stroke-width='.9'/><g fill='none' stroke-linecap='round'><path d='M3.1 5.7L8.1 3.1' stroke='%23140a01' stroke-opacity='.5' stroke-width='2.1'/><path d='M3.1 5.2L8.1 2.6' stroke='%23857559' stroke-width='2'/><path d='M3.1 5L8.1 2.4' stroke='%23e6dcc6' stroke-width='1.3'/></g></svg>") 0 0/12px 8px repeat-x;pointer-events:none}
+.status{height:46px;padding:0 14px;display:flex;justify-content:space-between;align-items:center;font:700 14px system-ui,sans-serif;color:#3b2509;text-shadow:0 1px 0 rgba(255,236,190,.55)}
+.bar{display:flex;justify-content:space-between;align-items:center;height:48px}
+.gilt{color:#3b2509;text-shadow:0 1px 0 rgba(255,236,190,.6)}
+.dd{position:relative}
+.dd-btn{height:48px;display:flex;align-items:center;gap:8px;font:700 28px 'Playfair Display',Georgia,serif}
+.dd-btn svg{transition:transform .2s;filter:drop-shadow(0 1px 0 rgba(255,236,190,.6))}
+.dd.open .dd-btn svg{transform:rotate(180deg)}
+.menu{display:none;position:absolute;left:-6px;top:calc(100% + 6px);width:230px;padding:5px;border-radius:14px;background:var(--g2),linear-gradient(#fffdf4,#f1e8d0);box-shadow:0 14px 26px rgba(20,8,0,.55),0 0 0 1px rgba(90,60,20,.5),inset 0 1px 0 #fff}
+.dd.open .menu{display:block}
+.menu button{display:flex;align-items:center;justify-content:space-between;width:100%;height:52px;padding:0 16px;border-radius:9px;font:500 20px 'Playfair Display',Georgia,serif;text-align:left}
+.menu button+button{border-top:1px solid rgba(120,90,40,.2)}
+.menu button:active{background:#eadcb8}
+.menu .on{font-weight:700}
+.menu .on::after{content:'\2713';color:var(--vermilion);font:700 17px system-ui,sans-serif}
+.nav{display:flex;margin-right:-10px}
+.nav button{width:48px;height:48px;border-radius:50%;display:grid;place-items:center}
+.nav button:active{background:rgba(90,55,15,.22);box-shadow:inset 0 2px 4px rgba(70,40,8,.45)}
+.nav svg{filter:drop-shadow(0 1px 0 rgba(255,236,190,.6))}
+.torn-wrap{position:absolute;left:0;right:0;bottom:-1px;filter:drop-shadow(0 -1px 1px rgba(30,12,0,.5))}
+.torn{height:13px;background:var(--paper);clip-path:polygon(0 100%,0 55%,3% 35%,6% 62%,10% 28%,14% 55%,18% 40%,23% 66%,27% 30%,31% 52%,36% 34%,40% 64%,45% 38%,49% 58%,54% 26%,58% 56%,63% 36%,67% 62%,72% 30%,76% 54%,81% 38%,85% 64%,90% 32%,94% 58%,97% 42%,100% 55%,100% 100%)}
+
+main{flex:1;overflow:auto;display:flex;flex-direction:column;background:var(--g2),linear-gradient(180deg,var(--paper),var(--paper-d));padding:8px 16px 110px;scrollbar-width:none}
+main::-webkit-scrollbar{display:none}
+.trow{position:relative;display:flex;align-items:flex-end;justify-content:space-between;margin:8px 4px 10px}
+h1{margin:0;font:700 36px/1.1 'Playfair Display',Georgia,serif;letter-spacing:-.01em;text-shadow:0 1px 0 #fff}
+#yr{font:700 38px 'Architects Daughter',cursive;color:#41659a;margin-left:8px;text-shadow:none}
+.back{font:600 22px 'Architects Daughter',cursive;color:#2f7d79;text-decoration:underline wavy rgba(47,125,121,.5);text-underline-offset:4px;padding:6px 4px 4px;min-height:44px}

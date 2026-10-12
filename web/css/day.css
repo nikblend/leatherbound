@@ -1,0 +1,43 @@
+/* ===== day.css — The day page: one sheet, printed rows and written rows interleaved ===== */
+/* ===== DAY view ===== */
+.dv{display:none}
+.dtag{margin:0 4px 4px;font:700 26px 'Architects Daughter',cursive;color:var(--soft);transform:rotate(-1.5deg);transform-origin:left}
+.dtag.t{color:var(--vermilion)}
+main[data-v=day] h1{font-size:32px}
+main[data-v=day] #yr{font-size:34px}
+main[data-v=day] #sc{display:none}
+main[data-v=day] .dv{display:block}
+.dv.turn{animation:turn .25s ease-out}
+.dsec{margin-top:20px}
+.dfoot{margin-top:34px;padding-top:10px;border-top:1.3px dashed rgba(118,96,63,.4);text-align:center;font:500 18px 'Architects Daughter',cursive;color:#a99a7c}
+.dsh{display:flex;align-items:baseline;gap:10px;margin:0 0 12px;padding-bottom:6px;font:700 22px 'Playfair Display',Georgia,serif;color:var(--ink);border-bottom:1.3px solid var(--pencil)}
+.dsh small{font:600 20px 'Architects Daughter',cursive;color:var(--soft)}
+.dall{margin-bottom:9px;cursor:pointer}
+.dall .tx,.tle .tx{display:block;padding:4px 10px 5px;font:600 27px/1.2 'Patrick Hand',cursive;color:#1f2540;overflow-wrap:anywhere;border-left:4px solid var(--c);border-radius:2px 8px 5px 9px;background:color-mix(in srgb,var(--c) 28%,transparent)}
+.dpart{padding:12px 0 6px 118px;font:600 22px 'Architects Daughter',cursive;color:var(--soft)}
+.tle{display:grid;grid-template-columns:84px 26px 1fr;align-items:start;cursor:pointer}
+.tt{padding:6px 8px 0 0;text-align:right;white-space:nowrap;font:700 22px/1.2 'Architects Daughter',cursive;color:var(--soft)}
+.rail{position:relative;align-self:stretch}
+.rail::before{content:'';position:absolute;left:50%;top:0;bottom:0;border-left:2px dashed rgba(118,96,63,.5)}
+.rail i{position:absolute;left:50%;top:13px;width:14px;height:14px;margin-left:-7px;border-radius:50%;background:var(--c);box-shadow:0 0 0 3px var(--paper),0 1px 2px rgba(40,20,0,.4)}
+.tb{min-width:0;padding:0 0 12px 8px}
+.dnow{cursor:default}
+.dnow .tt{color:var(--vermilion)}
+.dnow .rail i{background:var(--vermilion)}
+.nl{display:block;margin-top:19px;padding-top:2px;border-top:2px solid var(--vermilion);font:600 20px 'Architects Daughter',cursive;color:var(--vermilion)}
+.dempty{padding:30px 8px;text-align:center;font:500 27px 'Architects Daughter',cursive;color:#a99a7c}
+#nd{cursor:pointer;text-decoration:underline wavy rgba(47,125,121,.5);text-underline-offset:7px}
+#nd::after{content:' \203A';display:inline-block;color:#2f7d79}
+#nd.nolink{cursor:default;pointer-events:none;text-decoration:none}
+#nd.nolink::after{content:''}
+@keyframes noop{}
+.curl{position:absolute;left:0;right:0;z-index:4;overflow:hidden;perspective:1500px;pointer-events:none}
+.ctop{position:absolute;left:0;top:0;width:100%;overflow:hidden}
+.cl{position:absolute;left:0;margin:0;flex:none;overflow:hidden}
+.tip{position:absolute;left:0;right:0;height:34px;background:linear-gradient(rgba(25,12,0,0),rgba(25,12,0,.3))}
+.cshd{position:absolute;left:0;right:0;height:110px;background:linear-gradient(rgba(25,12,0,.5),rgba(25,12,0,0))}
+.cs{position:absolute;left:0;width:100%;transform-style:preserve-3d;transform-origin:0 0}
+.cp,.cc{position:absolute;inset:0}
+.cp{transform:translateZ(-1px)}
+.cc{overflow:hidden}
+.sh{position:absolute;inset:0;pointer-events:none}

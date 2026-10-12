@@ -1,0 +1,77 @@
+name: Leatherbound
+
+# the planner is a plain web page in web/; this project just wraps it in a
+# web view and copies the page into the app bundle untouched.
+options:
+  bundleIdPrefix: com.nikblend
+  deploymentTarget:
+    iOS: "16.0"
+  createIntermediateGroups: true
+
+settings:
+  base:
+    MARKETING_VERSION: "1.0"
+    CURRENT_PROJECT_VERSION: "1"
+    SWIFT_VERSION: "5.0"
+    ENABLE_USER_SCRIPT_SANDBOXING: NO
+
+targets:
+  Leatherbound:
+    type: application
+    platform: iOS
+    deploymentTarget: "16.0"
+    sources:
+      # the swift, and the app icon catalogue next to it. the generated
+      # Info.plist is excluded from the build phases on purpose: it is the
+      # target's own plist, and copying it twice breaks the build.
+      - path: Leatherbound
+        excludes: [Info.plist]
+      # the whole web app as a folder reference: it must be copied into the
+      # bundle as a folder, because css/, js/ and fonts/ are referenced by
+      # relative path from index.html
+      - path: ../web
+        name: Web
+        type: folder
+        buildPhase: resources
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: com.nikblend.leatherbound
+        PRODUCT_NAME: Leatherbound
+        TARGETED_DEVICE_FAMILY: "1"          # iphone only: the layout is a phone page
+        ASSETCATALOG_COMPILER_APPICON_NAME: AppIcon
+        CODE_SIGN_STYLE: Automatic           # ci overrides this and builds unsigned
+        SWIFT_EMIT_LOC_STRINGS: NO
+    info:
+      # xcodegen writes this file from the properties below
+      path: Leatherbound/Info.plist
+      properties:
+        CFBundleDisplayName: Leatherbound
+        CFBundleShortVersionString: $(MARKETING_VERSION)
+        CFBundleVersion: $(CURRENT_PROJECT_VERSION)
+        LSRequiresIPhoneOS: true
+        UILaunchScreen: {}
+        UIRequiresFullScreen: true
+        UIViewControllerBasedStatusBarAppearance: false
+        UIStatusBarStyle: UIStatusBarStyleDefault   # the gilt header is light in both themes
+        UISupportedInterfaceOrientations:
+          - UIInterfaceOrientationPortrait
+        UISupportedInterfaceOrientations~iphone:
+          - UIInterfaceOrientationPortrait
+        UIApplicationSupportsIndirectInputEvents: true
+        ITSAppUsesNonExemptEncryption: false
+
+schemes:
+  # declared explicitly so `xcodebuild -scheme Leatherbound` works in ci, where
+  # nothing ever opens the project in xcode and auto-creates the scheme
+  Leatherbound:
+    build:
+      targets:
+        Leatherbound: all
+    run:
+      config: Debug
+    profile:
+      config: Release
+    analyze:
+      config: Debug
+    archive:
+      config: Release

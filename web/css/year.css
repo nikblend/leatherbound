@@ -1,0 +1,53 @@
+/* ===== year.css — The year page: the whole school year on one printed sheet ===== */
+/* ===== YEAR VIEW: the school year as one printed sheet ===== */
+.yv{display:none}
+main[data-v=year] #sc{display:none}
+main[data-v=year] .yv{display:flex;flex:1;min-height:0;min-width:0}
+/* no day is on screen in the year view, so there is nothing for + to write on —
+   and the space its clearance reserved goes back to the table */
+main[data-v=year]+.fab{display:none}
+main[data-v=year]{padding-bottom:20px}
+main[data-v=year] h1{font-size:30px}
+main[data-v=year] #yr{font-size:34px}
+.nav button[aria-disabled=true]{opacity:.3;pointer-events:none}
+/* the sheet is a column: a thin band of chrome, then the year table takes the rest */
+.ywrap{flex:1;display:flex;flex-direction:column;min-height:0;min-width:0}
+.ywrap.turn{animation:turn .25s ease-out}
+.yband{flex:none;padding-bottom:9px;border-bottom:1.3px solid var(--pencil)}
+.yline{font:600 22px/1.35 'Architects Daughter',cursive;color:var(--soft)}
+.yline b{font:700 21px 'Playfair Display',Georgia,serif;color:#22305a}
+.ynext{margin-top:3px;font:700 11px/1.4 system-ui,-apple-system,sans-serif;letter-spacing:.12em;text-transform:uppercase;color:#8a7a5c}
+.yrule{position:relative;height:16px;margin-top:9px}
+.yrule::before{content:'';position:absolute;left:0;right:0;top:6px;height:5px;border-radius:2.5px;background:rgba(47,68,104,.12);box-shadow:inset 0 1px 2px rgba(40,20,0,.3)}
+.yfill{position:absolute;left:0;top:6px;height:5px;border-radius:2.5px;background:linear-gradient(90deg,rgba(47,68,104,.68),rgba(47,68,104,.44))}
+.ytick{position:absolute;top:2px;width:1.5px;height:13px;background:rgba(184,144,47,.9)}
+.ynew{position:absolute;top:1px;width:2px;height:15px;border-radius:1px;background:var(--vermilion)}
+/* the subject rail: run a fingertip down one course and the year answers */
+.ysub{display:flex;flex-wrap:nowrap;gap:6px;margin-top:7px;padding:1px 9px 2px 0;overflow-x:auto;scrollbar-width:none;-webkit-overflow-scrolling:touch;mask-image:linear-gradient(90deg,transparent 0,#000 11px,#000 calc(100% - 13px),transparent 100%);-webkit-mask-image:linear-gradient(90deg,transparent 0,#000 11px,#000 calc(100% - 13px),transparent 100%)}
+.ysub::-webkit-scrollbar{display:none}
+.ysub button{flex:none;display:flex;align-items:center;gap:6px;padding:4px 9px 4px 7px;border-radius:3px 9px 4px 8px;font:600 10px/1 system-ui,-apple-system,sans-serif;letter-spacing:.08em;text-transform:uppercase;color:#8a7a5c;background-image:linear-gradient(rgba(118,96,63,.08),rgba(118,96,63,.08));box-shadow:inset 0 0 0 .8px rgba(118,96,63,.24)}
+.ysub button i{flex:none;display:block;width:7px;height:7px;border-radius:1.5px;background:rgba(47,68,104,.34)}
+.ysub button.set{color:#22305a;background-image:linear-gradient(rgba(47,68,104,.14),rgba(47,68,104,.14));box-shadow:inset 0 0 0 1px rgba(47,68,104,.5)}
+.ysub button.set i{background:var(--vermilion)}
+.yc.onc{background:rgba(47,68,104,.62)}
+/* the other courses recede to bare paper, but days off keep their colour */
+.yl.byc .yc.ty-c:not(.onc){background:rgba(118,96,63,.09)}
+.yledger{flex:1;display:flex;flex-direction:column;margin-top:8px;padding:5px 0 7px;border-top:1.4px solid rgba(47,68,104,.42);border-bottom:.8px solid rgba(47,68,104,.26)}
+.yrow{flex:1;display:grid;grid-template-columns:40px 1fr;align-items:center;gap:0 8px;width:100%;min-height:26px;padding:4px 0;text-align:left}
+.yrow[data-m]{cursor:pointer}
+.yrow[data-m]:active{background-image:linear-gradient(rgba(47,68,104,.08),rgba(47,68,104,.08))}
+.yhead{flex:none;min-height:0;padding:0 0 5px}
+.ymon{font:700 12px/1 system-ui,-apple-system,sans-serif;letter-spacing:.08em;color:#8a7a5c;text-align:right}
+.ymon.cur{color:var(--vermilion)}
+.ycells{display:grid;grid-template-columns:repeat(31,1fr);gap:2px;align-self:stretch;align-items:stretch}
+.yhead .ycells{align-items:center}
+.yhead .yr{font:600 9.5px/1 system-ui,-apple-system,sans-serif;letter-spacing:.02em;color:#a99a7c;text-align:center;white-space:nowrap;overflow:visible}
+.yc,.yx{display:block;border-radius:3px}
+.yc{background:rgba(118,96,63,.07);box-shadow:inset 0 0 0 .5px rgba(118,96,63,.09)}
+.yx{background:transparent;box-shadow:none}
+.ty-c{background:rgba(47,68,104,.45)}
+.ty-ped{background:rgba(233,199,96,.95)}
+.ty-hol{background:rgba(201,64,44,.85)}
+.ty-brk{background:rgba(96,140,196,.9)}
+.yc.today{box-shadow:0 0 0 1.5px var(--vermilion)}
+.yc.term{box-shadow:inset 0 -3.5px 0 #b8902f}

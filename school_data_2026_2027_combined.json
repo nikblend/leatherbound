@@ -1,0 +1,3432 @@
+{
+  "schema_version": "1.0",
+  "description": "Transcription and structured, vision-free reconstruction of two photographed Quebec school PDFs, including a 9-day timetable and daily academic calendar.",
+  "sources": [
+    {
+      "file": "programme-2026-2027.pdf",
+      "type": "student_timetable",
+      "pages": 1
+    },
+    {
+      "file": "2026-10-11_scan_QuickScanApp.com.pdf",
+      "type": "academic_calendar",
+      "pages": 1
+    }
+  ],
+  "timetable": {
+    "source_file": "programme-2026-2027.pdf",
+    "document_type": "student_9_day_rotation_timetable",
+    "language": "fr-CA",
+    "pages": 1,
+    "document_header": {
+      "school": "ÉCOLE JACQUES-LEBER",
+      "title": "Horaire de l’élève",
+      "document_date": "2026-09-01",
+      "page_as_printed": "1000"
+    },
+    "student": {
+      "name_as_printed": null,
+      "student_identifier_as_printed": null,
+      "fiche_number": null,
+      "education_level": "Secondaire",
+      "classification": "G-3",
+      "grade": "3",
+      "cycle": null,
+      "school_year_field": "Année du c",
+      "homeroom_group": "318",
+      "locker": null,
+      "homeroom_teacher": "Beaulieu, M."
+    },
+    "rotation_days": 9,
+    "courses": {
+      "EDP302-36": {
+        "name": "Éduc. physique 3",
+        "teacher": "Beaulieu, M.",
+        "room": "PC121"
+      },
+      "ARM304-31": {
+        "name": "Multimédia sec. 3 (o",
+        "teacher": "Michel, A.",
+        "room": "PA219",
+        "note": "Subject label appears truncated in the scan after \"(o\"."
+      },
+      "FRA308-37": {
+        "name": "Français 3",
+        "teacher": "Anctil, J.",
+        "room": "PA485"
+      },
+      "SCT306-33": {
+        "name": "Sc./techno 3",
+        "teacher": "Neveu, F.",
+        "room": "PA460"
+      },
+      "MAT306-37": {
+        "name": "Mathématiques 3",
+        "teacher": "Caughie, M.",
+        "room": "PA465"
+      },
+      "ANG304-37": {
+        "name": "Anglais régulier 3",
+        "teacher": "Brosseau, R.",
+        "room": "PA471"
+      },
+      "HIS304-36": {
+        "name": "Histoire 3",
+        "teacher": "Leduc, M.",
+        "room": "PA417"
+      },
+      "ART302-33": {
+        "name": "Arts plastiques 3",
+        "teacher": "Michel, A.",
+        "room": "PA490"
+      }
+    },
+    "time_blocks": [
+      {
+        "type": "arrival",
+        "label": "Acc.",
+        "start": "09:10",
+        "end": "09:20"
+      },
+      {
+        "type": "class",
+        "period": 1,
+        "start": "09:25",
+        "end": "10:40"
+      },
+      {
+        "type": "break",
+        "label": "Pause",
+        "start": "10:40",
+        "end": "10:50"
+      },
+      {
+        "type": "class",
+        "period": 2,
+        "start": "10:50",
+        "end": "12:05"
+      },
+      {
+        "type": "lunch",
+        "label": "Dîner",
+        "start": null,
+        "end": null,
+        "between": "12:05–13:20"
+      },
+      {
+        "type": "class",
+        "period": 3,
+        "start": "13:20",
+        "end": "14:35"
+      },
+      {
+        "type": "break",
+        "label": "Pause",
+        "start": "14:35",
+        "end": "14:45"
+      },
+      {
+        "type": "class",
+        "period": 4,
+        "start": "14:45",
+        "end": "16:00"
+      },
+      {
+        "type": "departure",
+        "label": "Départ",
+        "start": null,
+        "end": null
+      }
+    ],
+    "days": [
+      {
+        "rotation_day": 1,
+        "label": "JOUR 1",
+        "periods": [
+          {
+            "period": 1,
+            "start": "09:25",
+            "end": "10:40",
+            "course_code": "EDP302-36",
+            "course_name": "Éduc. physique 3",
+            "teacher": "Beaulieu, M.",
+            "room": "PC121"
+          },
+          {
+            "period": 2,
+            "start": "10:50",
+            "end": "12:05",
+            "course_code": "ANG304-37",
+            "course_name": "Anglais régulier 3",
+            "teacher": "Brosseau, R.",
+            "room": "PA471"
+          },
+          {
+            "period": 3,
+            "start": "13:20",
+            "end": "14:35",
+            "course_code": "MAT306-37",
+            "course_name": "Mathématiques 3",
+            "teacher": "Caughie, M.",
+            "room": "PA465"
+          },
+          {
+            "period": 4,
+            "start": "14:45",
+            "end": "16:00",
+            "course_code": "FRA308-37",
+            "course_name": "Français 3",
+            "teacher": "Anctil, J.",
+            "room": "PA485"
+          }
+        ]
+      },
+      {
+        "rotation_day": 2,
+        "label": "JOUR 2",
+        "periods": [
+          {
+            "period": 1,
+            "start": "09:25",
+            "end": "10:40",
+            "course_code": "ARM304-31",
+            "course_name": "Multimédia sec. 3 (o",
+            "teacher": "Michel, A.",
+            "room": "PA219"
+          },
+          {
+            "period": 2,
+            "start": "10:50",
+            "end": "12:05",
+            "course_code": "HIS304-36",
+            "course_name": "Histoire 3",
+            "teacher": "Leduc, M.",
+            "room": "PA417"
+          },
+          {
+            "period": 3,
+            "start": "13:20",
+            "end": "14:35",
+            "course_code": "MAT306-37",
+            "course_name": "Mathématiques 3",
+            "teacher": "Caughie, M.",
+            "room": "PA465"
+          },
+          {
+            "period": 4,
+            "start": "14:45",
+            "end": "16:00",
+            "course_code": "SCT306-33",
+            "course_name": "Sc./techno 3",
+            "teacher": "Neveu, F.",
+            "room": "PA460"
+          }
+        ]
+      },
+      {
+        "rotation_day": 3,
+        "label": "JOUR 3",
+        "periods": [
+          {
+            "period": 1,
+            "start": "09:25",
+            "end": "10:40",
+            "course_code": "FRA308-37",
+            "course_name": "Français 3",
+            "teacher": "Anctil, J.",
+            "room": "PA485"
+          },
+          {
+            "period": 2,
+            "start": "10:50",
+            "end": "12:05",
+            "course_code": "ART302-33",
+            "course_name": "Arts plastiques 3",
+            "teacher": "Michel, A.",
+            "room": "PA490"
+          },
+          {
+            "period": 3,
+            "start": "13:20",
+            "end": "14:35",
+            "course_code": "ANG304-37",
+            "course_name": "Anglais régulier 3",
+            "teacher": "Brosseau, R.",
+            "room": "PA471"
+          },
+          {
+            "period": 4,
+            "start": "14:45",
+            "end": "16:00",
+            "course_code": "SCT306-33",
+            "course_name": "Sc./techno 3",
+            "teacher": "Neveu, F.",
+            "room": "PA460"
+          }
+        ]
+      },
+      {
+        "rotation_day": 4,
+        "label": "JOUR 4",
+        "periods": [
+          {
+            "period": 1,
+            "start": "09:25",
+            "end": "10:40",
+            "course_code": "FRA308-37",
+            "course_name": "Français 3",
+            "teacher": "Anctil, J.",
+            "room": "PA485"
+          },
+          {
+            "period": 2,
+            "start": "10:50",
+            "end": "12:05",
+            "course_code": "ARM304-31",
+            "course_name": "Multimédia sec. 3 (o",
+            "teacher": "Michel, A.",
+            "room": "PA219"
+          },
+          {
+            "period": 3,
+            "start": "13:20",
+            "end": "14:35",
+            "course_code": "HIS304-36",
+            "course_name": "Histoire 3",
+            "teacher": "Leduc, M.",
+            "room": "PA417"
+          },
+          {
+            "period": 4,
+            "start": "14:45",
+            "end": "16:00",
+            "course_code": "MAT306-37",
+            "course_name": "Mathématiques 3",
+            "teacher": "Caughie, M.",
+            "room": "PA465"
+          }
+        ]
+      },
+      {
+        "rotation_day": 5,
+        "label": "JOUR 5",
+        "periods": [
+          {
+            "period": 1,
+            "start": "09:25",
+            "end": "10:40",
+            "course_code": "SCT306-33",
+            "course_name": "Sc./techno 3",
+            "teacher": "Neveu, F.",
+            "room": "PA460"
+          },
+          {
+            "period": 2,
+            "start": "10:50",
+            "end": "12:05",
+            "course_code": "FRA308-37",
+            "course_name": "Français 3",
+            "teacher": "Anctil, J.",
+            "room": "PA485"
+          },
+          {
+            "period": 3,
+            "start": "13:20",
+            "end": "14:35",
+            "course_code": "EDP302-36",
+            "course_name": "Éduc. physique 3",
+            "teacher": "Beaulieu, M.",
+            "room": "PC121"
+          },
+          {
+            "period": 4,
+            "start": "14:45",
+            "end": "16:00",
+            "course_code": "ANG304-37",
+            "course_name": "Anglais régulier 3",
+            "teacher": "Brosseau, R.",
+            "room": "PA471"
+          }
+        ]
+      },
+      {
+        "rotation_day": 6,
+        "label": "JOUR 6",
+        "periods": [
+          {
+            "period": 1,
+            "start": "09:25",
+            "end": "10:40",
+            "course_code": "MAT306-37",
+            "course_name": "Mathématiques 3",
+            "teacher": "Caughie, M.",
+            "room": "PA465"
+          },
+          {
+            "period": 2,
+            "start": "10:50",
+            "end": "12:05",
+            "course_code": "FRA308-37",
+            "course_name": "Français 3",
+            "teacher": "Anctil, J.",
+            "room": "PA485"
+          },
+          {
+            "period": 3,
+            "start": "13:20",
+            "end": "14:35",
+            "course_code": "ARM304-31",
+            "course_name": "Multimédia sec. 3 (o",
+            "teacher": "Michel, A.",
+            "room": "PA219"
+          },
+          {
+            "period": 4,
+            "start": "14:45",
+            "end": "16:00",
+            "course_code": "HIS304-36",
+            "course_name": "Histoire 3",
+            "teacher": "Leduc, M.",
+            "room": "PA417"
+          }
+        ]
+      },
+      {
+        "rotation_day": 7,
+        "label": "JOUR 7",
+        "periods": [
+          {
+            "period": 1,
+            "start": "09:25",
+            "end": "10:40",
+            "course_code": "MAT306-37",
+            "course_name": "Mathématiques 3",
+            "teacher": "Caughie, M.",
+            "room": "PA465"
+          },
+          {
+            "period": 2,
+            "start": "10:50",
+            "end": "12:05",
+            "course_code": "SCT306-33",
+            "course_name": "Sc./techno 3",
+            "teacher": "Neveu, F.",
+            "room": "PA460"
+          },
+          {
+            "period": 3,
+            "start": "13:20",
+            "end": "14:35",
+            "course_code": "FRA308-37",
+            "course_name": "Français 3",
+            "teacher": "Anctil, J.",
+            "room": "PA485"
+          },
+          {
+            "period": 4,
+            "start": "14:45",
+            "end": "16:00",
+            "course_code": "ART302-33",
+            "course_name": "Arts plastiques 3",
+            "teacher": "Michel, A.",
+            "room": "PA490"
+          }
+        ]
+      },
+      {
+        "rotation_day": 8,
+        "label": "JOUR 8",
+        "periods": [
+          {
+            "period": 1,
+            "start": "09:25",
+            "end": "10:40",
+            "course_code": "ANG304-37",
+            "course_name": "Anglais régulier 3",
+            "teacher": "Brosseau, R.",
+            "room": "PA471"
+          },
+          {
+            "period": 2,
+            "start": "10:50",
+            "end": "12:05",
+            "course_code": "SCT306-33",
+            "course_name": "Sc./techno 3",
+            "teacher": "Neveu, F.",
+            "room": "PA460"
+          },
+          {
+            "period": 3,
+            "start": "13:20",
+            "end": "14:35",
+            "course_code": "FRA308-37",
+            "course_name": "Français 3",
+            "teacher": "Anctil, J.",
+            "room": "PA485"
+          },
+          {
+            "period": 4,
+            "start": "14:45",
+            "end": "16:00",
+            "course_code": "ARM304-31",
+            "course_name": "Multimédia sec. 3 (o",
+            "teacher": "Michel, A.",
+            "room": "PA219"
+          }
+        ]
+      },
+      {
+        "rotation_day": 9,
+        "label": "JOUR 9",
+        "periods": [
+          {
+            "period": 1,
+            "start": "09:25",
+            "end": "10:40",
+            "course_code": "HIS304-36",
+            "course_name": "Histoire 3",
+            "teacher": "Leduc, M.",
+            "room": "PA417"
+          },
+          {
+            "period": 2,
+            "start": "10:50",
+            "end": "12:05",
+            "course_code": "MAT306-37",
+            "course_name": "Mathématiques 3",
+            "teacher": "Caughie, M.",
+            "room": "PA465"
+          },
+          {
+            "period": 3,
+            "start": "13:20",
+            "end": "14:35",
+            "course_code": "SCT306-33",
+            "course_name": "Sc./techno 3",
+            "teacher": "Neveu, F.",
+            "room": "PA460"
+          },
+          {
+            "period": 4,
+            "start": "14:45",
+            "end": "16:00",
+            "course_code": "FRA308-37",
+            "course_name": "Français 3",
+            "teacher": "Anctil, J.",
+            "room": "PA485"
+          }
+        ]
+      }
+    ],
+    "transcription_notes": [
+      "The student's name, student identifier and fiche number are null on purpose: this file is published, and no view of the app reads them.",
+      "Course rows and rooms transcribed from visible page, not from the scrambled embedded PDF text.",
+      "Unfilled fields represented by JSON null.",
+      "Arrival and departure table cells contain no course assignments."
+    ]
+  },
+  "calendar": {
+    "source_file": "2026-10-11_scan_QuickScanApp.com.pdf",
+    "document_type": "school_calendar",
+    "language": "fr-CA",
+    "pages": 1,
+    "header": {
+      "institution": "Centre de services scolaire des Grandes-Seigneuries",
+      "region": "Québec",
+      "school": "Jacques-Leber",
+      "title": "Calendrier scolaire 2026-2027",
+      "student_name_handwritten": null,
+      "education_type": "Formation générale des jeunes",
+      "approved": "2025-12-16",
+      "approval_body": "BDG"
+    },
+    "range": {
+      "first_displayed_date": "2026-07-01",
+      "last_displayed_date": "2027-06-30",
+      "first_day_of_class": "2026-09-01",
+      "last_day_of_class": "2027-06-23"
+    },
+    "legend": [
+      {
+        "key": "class_day",
+        "printed_label": "Journées de classes",
+        "count": 180,
+        "visual": "white day cell with superscript rotation number"
+      },
+      {
+        "key": "fixed_pedagogical_day",
+        "printed_label": "Journées pédagogiques fixes",
+        "count": 13,
+        "visual": "yellow fill"
+      },
+      {
+        "key": "teacher_scheduled_fixed_pedagogical_day",
+        "printed_label": "Journées pédagogiques fixes à contenu et lieu déterminé par les enseignants",
+        "count": 2,
+        "visual": "light pink fill"
+      },
+      {
+        "key": "holiday",
+        "printed_label": "Congés",
+        "count": 16,
+        "visual": "red/pink oval around date"
+      },
+      {
+        "key": "spring_break",
+        "printed_label": "Semaine de relâche",
+        "count": 5,
+        "visual": "triangular outlines"
+      },
+      {
+        "key": "conditional_pedagogical_day",
+        "printed_label": "Journées pédagogiques conditionnelles",
+        "count": 2,
+        "visual": "blue outlined pentagon"
+      },
+      {
+        "key": "pedagogical_pool_day",
+        "printed_label": "Journée pédagogique bassin",
+        "date": "2027-01-22",
+        "visual": "outlined rounded polygon"
+      },
+      {
+        "key": "school_pedagogical_day",
+        "printed_label": "Journées pédagogiques école",
+        "dates": [
+          "2027-02-19",
+          "2027-05-21"
+        ],
+        "visual": "star outline"
+      }
+    ],
+    "important_dates": {
+      "parent_general_assembly": "2026-09-10",
+      "term_ends": [
+        {
+          "term": 1,
+          "date": "2026-11-12"
+        },
+        {
+          "term": 2,
+          "date": "2027-02-11"
+        },
+        {
+          "term": 3,
+          "date": "2027-06-23"
+        }
+      ],
+      "parent_meetings": [
+        {
+          "number": 1,
+          "dates": [
+            "2026-11-19",
+            "2026-11-20"
+          ]
+        },
+        {
+          "number": 2,
+          "dates": [
+            "2027-02-18"
+          ]
+        }
+      ]
+    },
+    "date_sets": {
+      "fixed_pedagogical_days": [
+        "2026-08-26",
+        "2026-08-27",
+        "2026-08-31",
+        "2026-10-05",
+        "2026-11-13",
+        "2026-11-20",
+        "2027-01-04",
+        "2027-04-09",
+        "2027-05-07",
+        "2027-06-25",
+        "2027-06-28",
+        "2027-06-29",
+        "2027-06-30"
+      ],
+      "teacher_scheduled_fixed_pedagogical_days": [
+        "2026-08-28",
+        "2027-02-12"
+      ],
+      "holidays": [
+        "2026-09-07",
+        "2026-10-12",
+        "2026-12-21",
+        "2026-12-22",
+        "2026-12-23",
+        "2026-12-24",
+        "2026-12-25",
+        "2026-12-28",
+        "2026-12-29",
+        "2026-12-30",
+        "2026-12-31",
+        "2027-01-01",
+        "2027-03-26",
+        "2027-03-29",
+        "2027-05-24",
+        "2027-06-24"
+      ],
+      "summer_holiday_markings": [
+        "2026-07-01"
+      ],
+      "spring_break": [
+        "2027-03-01",
+        "2027-03-02",
+        "2027-03-03",
+        "2027-03-04",
+        "2027-03-05"
+      ],
+      "conditional_pedagogical_days": [
+        "2027-04-19",
+        "2027-06-04"
+      ],
+      "school_pedagogical_days": [
+        "2027-02-19",
+        "2027-05-21"
+      ],
+      "pedagogical_pool_day": [
+        "2027-01-22"
+      ]
+    },
+    "months": [
+      {
+        "year": 2026,
+        "month": 7,
+        "month_name_fr": "juillet",
+        "dates": [
+          {
+            "date": "2026-07-01",
+            "weekday": "wednesday",
+            "status": "not_in_class_session",
+            "markers": [
+              "holiday"
+            ],
+            "rotation_day": null
+          },
+          {
+            "date": "2026-07-02",
+            "weekday": "thursday",
+            "status": "not_in_class_session",
+            "markers": [],
+            "rotation_day": null
+          },
+          {
+            "date": "2026-07-03",
+            "weekday": "friday",
+            "status": "not_in_class_session",
+            "markers": [],
+            "rotation_day": null
+          },
+          {
+            "date": "2026-07-04",
+            "weekday": "saturday",
+            "status": "weekend",
+            "markers": [],
+            "rotation_day": null
+          },
+          {
+            "date": "2026-07-05",
+            "weekday": "sunday",
+            "status": "weekend",
+            "markers": [],
+            "rotation_day": null
+          },
+          {
+            "date": "2026-07-06",
+            "weekday": "monday",
+            "status": "not_in_class_session",
+            "markers": [],
+            "rotation_day": null
+          },
+          {
+            "date": "2026-07-07",
+            "weekday": "tuesday",
+            "status": "not_in_class_session",
+            "markers": [],
+            "rotation_day": null
+          },
+          {
+            "date": "2026-07-08",
+            "weekday": "wednesday",
+            "status": "not_in_class_session",
+            "markers": [],
+            "rotation_day": null
+          },
+          {
+            "date": "2026-07-09",
+            "weekday": "thursday",
+            "status": "not_in_class_session",
+            "markers": [],
+            "rotation_day": null
+          },
+          {
+            "date": "2026-07-10",
+            "weekday": "friday",
+            "status": "not_in_class_session",
+            "markers": [],
+            "rotation_day": null
+          },
+          {
+            "date": "2026-07-11",
+            "weekday": "saturday",
+            "status": "weekend",
+            "markers": [],
+            "rotation_day": null
+          },
+          {
+            "date": "2026-07-12",
+            "weekday": "sunday",
+            "status": "weekend",
+            "markers": [],
+            "rotation_day": null
+          },
+          {
+            "date": "2026-07-13",
+            "weekday": "monday",
+            "status": "not_in_class_session",
+            "markers": [],
+            "rotation_day": null
+          },
+          {
+            "date": "2026-07-14",
+            "weekday": "tuesday",
+            "status": "not_in_class_session",
+            "markers": [],
+            "rotation_day": null
+          },
+          {
+            "date": "2026-07-15",
+            "weekday": "wednesday",
+            "status": "not_in_class_session",
+            "markers": [],
+            "rotation_day": null
+          },
+          {
+            "date": "2026-07-16",
+            "weekday": "thursday",
+            "status": "not_in_class_session",
+            "markers": [],
+            "rotation_day": null
+          },
+          {
+            "date": "2026-07-17",
+            "weekday": "friday",
+            "status": "not_in_class_session",
+            "markers": [],
+            "rotation_day": null
+          },
+          {
+            "date": "2026-07-18",
+            "weekday": "saturday",
+            "status": "weekend",
+            "markers": [],
+            "rotation_day": null
+          },
+          {
+            "date": "2026-07-19",
+            "weekday": "sunday",
+            "status": "weekend",
+            "markers": [],
+            "rotation_day": null
+          },
+          {
+            "date": "2026-07-20",
+            "weekday": "monday",
+            "status": "not_in_class_session",
+            "markers": [],
+            "rotation_day": null
+          },
+          {
+            "date": "2026-07-21",
+            "weekday": "tuesday",
+            "status": "not_in_class_session",
+            "markers": [],
+            "rotation_day": null
+          },
+          {
+            "date": "2026-07-22",
+            "weekday": "wednesday",
+            "status": "not_in_class_session",
+            "markers": [],
+            "rotation_day": null
+          },
+          {
+            "date": "2026-07-23",
+            "weekday": "thursday",
+            "status": "not_in_class_session",
+            "markers": [],
+            "rotation_day": null
+          },
+          {
+            "date": "2026-07-24",
+            "weekday": "friday",
+            "status": "not_in_class_session",
+            "markers": [],
+            "rotation_day": null
+          },
+          {
+            "date": "2026-07-25",
+            "weekday": "saturday",
+            "status": "weekend",
+            "markers": [],
+            "rotation_day": null
+          },
+          {
+            "date": "2026-07-26",
+            "weekday": "sunday",
+            "status": "weekend",
+            "markers": [],
+            "rotation_day": null
+          },
+          {
+            "date": "2026-07-27",
+            "weekday": "monday",
+            "status": "not_in_class_session",
+            "markers": [],
+            "rotation_day": null
+          },
+          {
+            "date": "2026-07-28",
+            "weekday": "tuesday",
+            "status": "not_in_class_session",
+            "markers": [],
+            "rotation_day": null
+          },
+          {
+            "date": "2026-07-29",
+            "weekday": "wednesday",
+            "status": "not_in_class_session",
+            "markers": [],
+            "rotation_day": null
+          },
+          {
+            "date": "2026-07-30",
+            "weekday": "thursday",
+            "status": "not_in_class_session",
+            "markers": [],
+            "rotation_day": null
+          },
+          {
+            "date": "2026-07-31",
+            "weekday": "friday",
+            "status": "not_in_class_session",
+            "markers": [],
+            "rotation_day": null
+          }
+        ]
+      },
+      {
+        "year": 2026,
+        "month": 8,
+        "month_name_fr": "août",
+        "dates": [
+          {
+            "date": "2026-08-01",
+            "weekday": "saturday",
+            "status": "weekend",
+            "markers": [],
+            "rotation_day": null
+          },
+          {
+            "date": "2026-08-02",
+            "weekday": "sunday",
+            "status": "weekend",
+            "markers": [],
+            "rotation_day": null
+          },
+          {
+            "date": "2026-08-03",
+            "weekday": "monday",
+            "status": "not_in_class_session",
+            "markers": [],
+            "rotation_day": null
+          },
+          {
+            "date": "2026-08-04",
+            "weekday": "tuesday",
+            "status": "not_in_class_session",
+            "markers": [],
+            "rotation_day": null
+          },
+          {
+            "date": "2026-08-05",
+            "weekday": "wednesday",
+            "status": "not_in_class_session",
+            "markers": [],
+            "rotation_day": null
+          },
+          {
+            "date": "2026-08-06",
+            "weekday": "thursday",
+            "status": "not_in_class_session",
+            "markers": [],
+            "rotation_day": null
+          },
+          {
+            "date": "2026-08-07",
+            "weekday": "friday",
+            "status": "not_in_class_session",
+            "markers": [],
+            "rotation_day": null
+          },
+          {
+            "date": "2026-08-08",
+            "weekday": "saturday",
+            "status": "weekend",
+            "markers": [],
+            "rotation_day": null
+          },
+          {
+            "date": "2026-08-09",
+            "weekday": "sunday",
+            "status": "weekend",
+            "markers": [],
+            "rotation_day": null
+          },
+          {
+            "date": "2026-08-10",
+            "weekday": "monday",
+            "status": "not_in_class_session",
+            "markers": [],
+            "rotation_day": null
+          },
+          {
+            "date": "2026-08-11",
+            "weekday": "tuesday",
+            "status": "not_in_class_session",
+            "markers": [],
+            "rotation_day": null
+          },
+          {
+            "date": "2026-08-12",
+            "weekday": "wednesday",
+            "status": "not_in_class_session",
+            "markers": [],
+            "rotation_day": null
+          },
+          {
+            "date": "2026-08-13",
+            "weekday": "thursday",
+            "status": "not_in_class_session",
+            "markers": [],
+            "rotation_day": null
+          },
+          {
+            "date": "2026-08-14",
+            "weekday": "friday",
+            "status": "not_in_class_session",
+            "markers": [],
+            "rotation_day": null
+          },
+          {
+            "date": "2026-08-15",
+            "weekday": "saturday",
+            "status": "weekend",
+            "markers": [],
+            "rotation_day": null
+          },
+          {
+            "date": "2026-08-16",
+            "weekday": "sunday",
+            "status": "weekend",
+            "markers": [],
+            "rotation_day": null
+          },
+          {
+            "date": "2026-08-17",
+            "weekday": "monday",
+            "status": "not_in_class_session",
+            "markers": [],
+            "rotation_day": null
+          },
+          {
+            "date": "2026-08-18",
+            "weekday": "tuesday",
+            "status": "not_in_class_session",
+            "markers": [],
+            "rotation_day": null
+          },
+          {
+            "date": "2026-08-19",
+            "weekday": "wednesday",
+            "status": "not_in_class_session",
+            "markers": [],
+            "rotation_day": null
+          },
+          {
+            "date": "2026-08-20",
+            "weekday": "thursday",
+            "status": "not_in_class_session",
+            "markers": [],
+            "rotation_day": null
+          },
+          {
+            "date": "2026-08-21",
+            "weekday": "friday",
+            "status": "not_in_class_session",
+            "markers": [],
+            "rotation_day": null
+          },
+          {
+            "date": "2026-08-22",
+            "weekday": "saturday",
+            "status": "weekend",
+            "markers": [],
+            "rotation_day": null
+          },
+          {
+            "date": "2026-08-23",
+            "weekday": "sunday",
+            "status": "weekend",
+            "markers": [],
+            "rotation_day": null
+          },
+          {
+            "date": "2026-08-24",
+            "weekday": "monday",
+            "status": "not_in_class_session",
+            "markers": [],
+            "rotation_day": null
+          },
+          {
+            "date": "2026-08-25",
+            "weekday": "tuesday",
+            "status": "not_in_class_session",
+            "markers": [],
+            "rotation_day": null
+          },
+          {
+            "date": "2026-08-26",
+            "weekday": "wednesday",
+            "status": "not_in_class_session",
+            "markers": [
+              "fixed_pedagogical_day"
+            ],
+            "rotation_day": null
+          },
+          {
+            "date": "2026-08-27",
+            "weekday": "thursday",
+            "status": "not_in_class_session",
+            "markers": [
+              "fixed_pedagogical_day"
+            ],
+            "rotation_day": null
+          },
+          {
+            "date": "2026-08-28",
+            "weekday": "friday",
+            "status": "not_in_class_session",
+            "markers": [
+              "teacher_scheduled_fixed_pedagogical_day"
+            ],
+            "rotation_day": null
+          },
+          {
+            "date": "2026-08-29",
+            "weekday": "saturday",
+            "status": "weekend",
+            "markers": [],
+            "rotation_day": null
+          },
+          {
+            "date": "2026-08-30",
+            "weekday": "sunday",
+            "status": "weekend",
+            "markers": [],
+            "rotation_day": null
+          },
+          {
+            "date": "2026-08-31",
+            "weekday": "monday",
+            "status": "not_in_class_session",
+            "markers": [
+              "fixed_pedagogical_day"
+            ],
+            "rotation_day": null
+          }
+        ]
+      },
+      {
+        "year": 2026,
+        "month": 9,
+        "month_name_fr": "septembre",
+        "dates": [
+          {
+            "date": "2026-09-01",
+            "weekday": "tuesday",
+            "status": "class_day",
+            "markers": [],
+            "rotation_day": 1
+          },
+          {
+            "date": "2026-09-02",
+            "weekday": "wednesday",
+            "status": "class_day",
+            "markers": [],
+            "rotation_day": 2
+          },
+          {
+            "date": "2026-09-03",
+            "weekday": "thursday",
+            "status": "class_day",
+            "markers": [],
+            "rotation_day": 3
+          },
+          {
+            "date": "2026-09-04",
+            "weekday": "friday",
+            "status": "class_day",
+            "markers": [],
+            "rotation_day": 4
+          },
+          {
+            "date": "2026-09-05",
+            "weekday": "saturday",
+            "status": "weekend",
+            "markers": [],
+            "rotation_day": null
+          },
+          {
+            "date": "2026-09-06",
+            "weekday": "sunday",
+            "status": "weekend",
+            "markers": [],
+            "rotation_day": null
+          },
+          {
+            "date": "2026-09-07",
+            "weekday": "monday",
+            "status": "no_class",
+            "markers": [
+              "holiday"
+            ],
+            "rotation_day": null
+          },
+          {
+            "date": "2026-09-08",
+            "weekday": "tuesday",
+            "status": "class_day",
+            "markers": [],
+            "rotation_day": 5
+          },
+          {
+            "date": "2026-09-09",
+            "weekday": "wednesday",
+            "status": "class_day",
+            "markers": [],
+            "rotation_day": 6
+          },
+          {
+            "date": "2026-09-10",
+            "weekday": "thursday",
+            "status": "class_day",
+            "markers": [],
+            "rotation_day": 7
+          },
+          {
+            "date": "2026-09-11",
+            "weekday": "friday",
+            "status": "class_day",
+            "markers": [],
+            "rotation_day": 8
+          },
+          {
+            "date": "2026-09-12",
+            "weekday": "saturday",
+            "status": "weekend",
+            "markers": [],
+            "rotation_day": null
+          },
+          {
+            "date": "2026-09-13",
+            "weekday": "sunday",
+            "status": "weekend",
+            "markers": [],
+            "rotation_day": null
+          },
+          {
+            "date": "2026-09-14",
+            "weekday": "monday",
+            "status": "class_day",
+            "markers": [],
+            "rotation_day": 9
+          },
+          {
+            "date": "2026-09-15",
+            "weekday": "tuesday",
+            "status": "class_day",
+            "markers": [],
+            "rotation_day": 1
+          },
+          {
+            "date": "2026-09-16",
+            "weekday": "wednesday",
+            "status": "class_day",
+            "markers": [],
+            "rotation_day": 2
+          },
+          {
+            "date": "2026-09-17",
+            "weekday": "thursday",
+            "status": "class_day",
+            "markers": [],
+            "rotation_day": 3
+          },
+          {
+            "date": "2026-09-18",
+            "weekday": "friday",
+            "status": "class_day",
+            "markers": [],
+            "rotation_day": 4
+          },
+          {
+            "date": "2026-09-19",
+            "weekday": "saturday",
+            "status": "weekend",
+            "markers": [],
+            "rotation_day": null
+          },
+          {
+            "date": "2026-09-20",
+            "weekday": "sunday",
+            "status": "weekend",
+            "markers": [],
+            "rotation_day": null
+          },
+          {
+            "date": "2026-09-21",
+            "weekday": "monday",
+            "status": "class_day",
+            "markers": [],
+            "rotation_day": 5
+          },
+          {
+            "date": "2026-09-22",
+            "weekday": "tuesday",
+            "status": "class_day",
+            "markers": [],
+            "rotation_day": 6
+          },
+          {
+            "date": "2026-09-23",
+            "weekday": "wednesday",
+            "status": "class_day",
+            "markers": [],
+            "rotation_day": 7
+          },
+          {
+            "date": "2026-09-24",
+            "weekday": "thursday",
+            "status": "class_day",
+            "markers": [],
+            "rotation_day": 8
+          },
+          {
+            "date": "2026-09-25",
+            "weekday": "friday",
+            "status": "class_day",
+            "markers": [],
+            "rotation_day": 9
+          },
+          {
+            "date": "2026-09-26",
+            "weekday": "saturday",
+            "status": "weekend",
+            "markers": [],
+            "rotation_day": null
+          },
+          {
+            "date": "2026-09-27",
+            "weekday": "sunday",
+            "status": "weekend",
+            "markers": [],
+            "rotation_day": null
+          },
+          {
+            "date": "2026-09-28",
+            "weekday": "monday",
+            "status": "class_day",
+            "markers": [],
+            "rotation_day": 1
+          },
+          {
+            "date": "2026-09-29",
+            "weekday": "tuesday",
+            "status": "class_day",
+            "markers": [],
+            "rotation_day": 2
+          },
+          {
+            "date": "2026-09-30",
+            "weekday": "wednesday",
+            "status": "class_day",
+            "markers": [],
+            "rotation_day": 3
+          }
+        ]
+      },
+      {
+        "year": 2026,
+        "month": 10,
+        "month_name_fr": "octobre",
+        "dates": [
+          {
+            "date": "2026-10-01",
+            "weekday": "thursday",
+            "status": "class_day",
+            "markers": [],
+            "rotation_day": 4
+          },
+          {
+            "date": "2026-10-02",
+            "weekday": "friday",
+            "status": "class_day",
+            "markers": [],
+            "rotation_day": 5
+          },
+          {
+            "date": "2026-10-03",
+            "weekday": "saturday",
+            "status": "weekend",
+            "markers": [],
+            "rotation_day": null
+          },
+          {
+            "date": "2026-10-04",
+            "weekday": "sunday",
+            "status": "weekend",
+            "markers": [],
+            "rotation_day": null
+          },
+          {
+            "date": "2026-10-05",
+            "weekday": "monday",
+            "status": "no_class",
+            "markers": [
+              "fixed_pedagogical_day"
+            ],
+            "rotation_day": null
+          },
+          {
+            "date": "2026-10-06",
+            "weekday": "tuesday",
+            "status": "class_day",
+            "markers": [],
+            "rotation_day": 6
+          },
+          {
+            "date": "2026-10-07",
+            "weekday": "wednesday",
+            "status": "class_day",
+            "markers": [],
+            "rotation_day": 7
+          },
+          {
+            "date": "2026-10-08",
+            "weekday": "thursday",
+            "status": "class_day",
+            "markers": [],
+            "rotation_day": 8
+          },
+          {
+            "date": "2026-10-09",
+            "weekday": "friday",
+            "status": "class_day",
+            "markers": [],
+            "rotation_day": 9
+          },
+          {
+            "date": "2026-10-10",
+            "weekday": "saturday",
+            "status": "weekend",
+            "markers": [],
+            "rotation_day": null
+          },
+          {
+            "date": "2026-10-11",
+            "weekday": "sunday",
+            "status": "weekend",
+            "markers": [],
+            "rotation_day": null
+          },
+          {
+            "date": "2026-10-12",
+            "weekday": "monday",
+            "status": "no_class",
+            "markers": [
+              "holiday"
+            ],
+            "rotation_day": null
+          },
+          {
+            "date": "2026-10-13",
+            "weekday": "tuesday",
+            "status": "class_day",
+            "markers": [],
+            "rotation_day": 1
+          },
+          {
+            "date": "2026-10-14",
+            "weekday": "wednesday",
+            "status": "class_day",
+            "markers": [],
+            "rotation_day": 2
+          },
+          {
+            "date": "2026-10-15",
+            "weekday": "thursday",
+            "status": "class_day",
+            "markers": [],
+            "rotation_day": 3
+          },
+          {
+            "date": "2026-10-16",
+            "weekday": "friday",
+            "status": "class_day",
+            "markers": [],
+            "rotation_day": 4
+          },
+          {
+            "date": "2026-10-17",
+            "weekday": "saturday",
+            "status": "weekend",
+            "markers": [],
+            "rotation_day": null
+          },
+          {
+            "date": "2026-10-18",
+            "weekday": "sunday",
+            "status": "weekend",
+            "markers": [],
+            "rotation_day": null
+          },
+          {
+            "date": "2026-10-19",
+            "weekday": "monday",
+            "status": "class_day",
+            "markers": [],
+            "rotation_day": 5
+          },
+          {
+            "date": "2026-10-20",
+            "weekday": "tuesday",
+            "status": "class_day",
+            "markers": [],
+            "rotation_day": 6
+          },
+          {
+            "date": "2026-10-21",
+            "weekday": "wednesday",
+            "status": "class_day",
+            "markers": [],
+            "rotation_day": 7
+          },
+          {
+            "date": "2026-10-22",
+            "weekday": "thursday",
+            "status": "class_day",
+            "markers": [],
+            "rotation_day": 8
+          },
+          {
+            "date": "2026-10-23",
+            "weekday": "friday",
+            "status": "class_day",
+            "markers": [],
+            "rotation_day": 9
+          },
+          {
+            "date": "2026-10-24",
+            "weekday": "saturday",
+            "status": "weekend",
+            "markers": [],
+            "rotation_day": null
+          },
+          {
+            "date": "2026-10-25",
+            "weekday": "sunday",
+            "status": "weekend",
+            "markers": [],
+            "rotation_day": null
+          },
+          {
+            "date": "2026-10-26",
+            "weekday": "monday",
+            "status": "class_day",
+            "markers": [],
+            "rotation_day": 1
+          },
+          {
+            "date": "2026-10-27",
+            "weekday": "tuesday",
+            "status": "class_day",
+            "markers": [],
+            "rotation_day": 2
+          },
+          {
+            "date": "2026-10-28",
+            "weekday": "wednesday",
+            "status": "class_day",
+            "markers": [],
+            "rotation_day": 3
+          },
+          {
+            "date": "2026-10-29",
+            "weekday": "thursday",
+            "status": "class_day",
+            "markers": [],
+            "rotation_day": 4
+          },
+          {
+            "date": "2026-10-30",
+            "weekday": "friday",
+            "status": "class_day",
+            "markers": [],
+            "rotation_day": 5
+          },
+          {
+            "date": "2026-10-31",
+            "weekday": "saturday",
+            "status": "weekend",
+            "markers": [],
+            "rotation_day": null
+          }
+        ]
+      },
+      {
+        "year": 2026,
+        "month": 11,
+        "month_name_fr": "novembre",
+        "dates": [
+          {
+            "date": "2026-11-01",
+            "weekday": "sunday",
+            "status": "weekend",
+            "markers": [],
+            "rotation_day": null
+          },
+          {
+            "date": "2026-11-02",
+            "weekday": "monday",
+            "status": "class_day",
+            "markers": [],
+            "rotation_day": 6
+          },
+          {
+            "date": "2026-11-03",
+            "weekday": "tuesday",
+            "status": "class_day",
+            "markers": [],
+            "rotation_day": 7
+          },
+          {
+            "date": "2026-11-04",
+            "weekday": "wednesday",
+            "status": "class_day",
+            "markers": [],
+            "rotation_day": 8
+          },
+          {
+            "date": "2026-11-05",
+            "weekday": "thursday",
+            "status": "class_day",
+            "markers": [],
+            "rotation_day": 9
+          },
+          {
+            "date": "2026-11-06",
+            "weekday": "friday",
+            "status": "class_day",
+            "markers": [],
+            "rotation_day": 1
+          },
+          {
+            "date": "2026-11-07",
+            "weekday": "saturday",
+            "status": "weekend",
+            "markers": [],
+            "rotation_day": null
+          },
+          {
+            "date": "2026-11-08",
+            "weekday": "sunday",
+            "status": "weekend",
+            "markers": [],
+            "rotation_day": null
+          },
+          {
+            "date": "2026-11-09",
+            "weekday": "monday",
+            "status": "class_day",
+            "markers": [],
+            "rotation_day": 2
+          },
+          {
+            "date": "2026-11-10",
+            "weekday": "tuesday",
+            "status": "class_day",
+            "markers": [],
+            "rotation_day": 3
+          },
+          {
+            "date": "2026-11-11",
+            "weekday": "wednesday",
+            "status": "class_day",
+            "markers": [],
+            "rotation_day": 4
+          },
+          {
+            "date": "2026-11-12",
+            "weekday": "thursday",
+            "status": "class_day",
+            "markers": [],
+            "rotation_day": 5
+          },
+          {
+            "date": "2026-11-13",
+            "weekday": "friday",
+            "status": "no_class",
+            "markers": [
+              "fixed_pedagogical_day"
+            ],
+            "rotation_day": null
+          },
+          {
+            "date": "2026-11-14",
+            "weekday": "saturday",
+            "status": "weekend",
+            "markers": [],
+            "rotation_day": null
+          },
+          {
+            "date": "2026-11-15",
+            "weekday": "sunday",
+            "status": "weekend",
+            "markers": [],
+            "rotation_day": null
+          },
+          {
+            "date": "2026-11-16",
+            "weekday": "monday",
+            "status": "class_day",
+            "markers": [],
+            "rotation_day": 6
+          },
+          {
+            "date": "2026-11-17",
+            "weekday": "tuesday",
+            "status": "class_day",
+            "markers": [],
+            "rotation_day": 7
+          },
+          {
+            "date": "2026-11-18",
+            "weekday": "wednesday",
+            "status": "class_day",
+            "markers": [],
+            "rotation_day": 8
+          },
+          {
+            "date": "2026-11-19",
+            "weekday": "thursday",
+            "status": "class_day",
+            "markers": [],
+            "rotation_day": 9
+          },
+          {
+            "date": "2026-11-20",
+            "weekday": "friday",
+            "status": "no_class",
+            "markers": [
+              "fixed_pedagogical_day"
+            ],
+            "rotation_day": null
+          },
+          {
+            "date": "2026-11-21",
+            "weekday": "saturday",
+            "status": "weekend",
+            "markers": [],
+            "rotation_day": null
+          },
+          {
+            "date": "2026-11-22",
+            "weekday": "sunday",
+            "status": "weekend",
+            "markers": [],
+            "rotation_day": null
+          },
+          {
+            "date": "2026-11-23",
+            "weekday": "monday",
+            "status": "class_day",
+            "markers": [],
+            "rotation_day": 1
+          },
+          {
+            "date": "2026-11-24",
+            "weekday": "tuesday",
+            "status": "class_day",
+            "markers": [],
+            "rotation_day": 2
+          },
+          {
+            "date": "2026-11-25",
+            "weekday": "wednesday",
+            "status": "class_day",
+            "markers": [],
+            "rotation_day": 3
+          },
+          {
+            "date": "2026-11-26",
+            "weekday": "thursday",
+            "status": "class_day",
+            "markers": [],
+            "rotation_day": 4
+          },
+          {
+            "date": "2026-11-27",
+            "weekday": "friday",
+            "status": "class_day",
+            "markers": [],
+            "rotation_day": 5
+          },
+          {
+            "date": "2026-11-28",
+            "weekday": "saturday",
+            "status": "weekend",
+            "markers": [],
+            "rotation_day": null
+          },
+          {
+            "date": "2026-11-29",
+            "weekday": "sunday",
+            "status": "weekend",
+            "markers": [],
+            "rotation_day": null
+          },
+          {
+            "date": "2026-11-30",
+            "weekday": "monday",
+            "status": "class_day",
+            "markers": [],
+            "rotation_day": 6
+          }
+        ]
+      },
+      {
+        "year": 2026,
+        "month": 12,
+        "month_name_fr": "décembre",
+        "dates": [
+          {
+            "date": "2026-12-01",
+            "weekday": "tuesday",
+            "status": "class_day",
+            "markers": [],
+            "rotation_day": 7
+          },
+          {
+            "date": "2026-12-02",
+            "weekday": "wednesday",
+            "status": "class_day",
+            "markers": [],
+            "rotation_day": 8
+          },
+          {
+            "date": "2026-12-03",
+            "weekday": "thursday",
+            "status": "class_day",
+            "markers": [],
+            "rotation_day": 9
+          },
+          {
+            "date": "2026-12-04",
+            "weekday": "friday",
+            "status": "class_day",
+            "markers": [],
+            "rotation_day": 1
+          },
+          {
+            "date": "2026-12-05",
+            "weekday": "saturday",
+            "status": "weekend",
+            "markers": [],
+            "rotation_day": null
+          },
+          {
+            "date": "2026-12-06",
+            "weekday": "sunday",
+            "status": "weekend",
+            "markers": [],
+            "rotation_day": null
+          },
+          {
+            "date": "2026-12-07",
+            "weekday": "monday",
+            "status": "class_day",
+            "markers": [],
+            "rotation_day": 2
+          },
+          {
+            "date": "2026-12-08",
+            "weekday": "tuesday",
+            "status": "class_day",
+            "markers": [],
+            "rotation_day": 3
+          },
+          {
+            "date": "2026-12-09",
+            "weekday": "wednesday",
+            "status": "class_day",
+            "markers": [],
+            "rotation_day": 4
+          },
+          {
+            "date": "2026-12-10",
+            "weekday": "thursday",
+            "status": "class_day",
+            "markers": [],
+            "rotation_day": 5
+          },
+          {
+            "date": "2026-12-11",
+            "weekday": "friday",
+            "status": "class_day",
+            "markers": [],
+            "rotation_day": 6
+          },
+          {
+            "date": "2026-12-12",
+            "weekday": "saturday",
+            "status": "weekend",
+            "markers": [],
+            "rotation_day": null
+          },
+          {
+            "date": "2026-12-13",
+            "weekday": "sunday",
+            "status": "weekend",
+            "markers": [],
+            "rotation_day": null
+          },
+          {
+            "date": "2026-12-14",
+            "weekday": "monday",
+            "status": "class_day",
+            "markers": [],
+            "rotation_day": 7
+          },
+          {
+            "date": "2026-12-15",
+            "weekday": "tuesday",
+            "status": "class_day",
+            "markers": [],
+            "rotation_day": 8
+          },
+          {
+            "date": "2026-12-16",
+            "weekday": "wednesday",
+            "status": "class_day",
+            "markers": [],
+            "rotation_day": 9
+          },
+          {
+            "date": "2026-12-17",
+            "weekday": "thursday",
+            "status": "class_day",
+            "markers": [],
+            "rotation_day": 1
+          },
+          {
+            "date": "2026-12-18",
+            "weekday": "friday",
+            "status": "class_day",
+            "markers": [],
+            "rotation_day": 2
+          },
+          {
+            "date": "2026-12-19",
+            "weekday": "saturday",
+            "status": "weekend",
+            "markers": [],
+            "rotation_day": null
+          },
+          {
+            "date": "2026-12-20",
+            "weekday": "sunday",
+            "status": "weekend",
+            "markers": [],
+            "rotation_day": null
+          },
+          {
+            "date": "2026-12-21",
+            "weekday": "monday",
+            "status": "no_class",
+            "markers": [
+              "holiday"
+            ],
+            "rotation_day": null
+          },
+          {
+            "date": "2026-12-22",
+            "weekday": "tuesday",
+            "status": "no_class",
+            "markers": [
+              "holiday"
+            ],
+            "rotation_day": null
+          },
+          {
+            "date": "2026-12-23",
+            "weekday": "wednesday",
+            "status": "no_class",
+            "markers": [
+              "holiday"
+            ],
+            "rotation_day": null
+          },
+          {
+            "date": "2026-12-24",
+            "weekday": "thursday",
+            "status": "no_class",
+            "markers": [
+              "holiday"
+            ],
+            "rotation_day": null
+          },
+          {
+            "date": "2026-12-25",
+            "weekday": "friday",
+            "status": "no_class",
+            "markers": [
+              "holiday"
+            ],
+            "rotation_day": null
+          },
+          {
+            "date": "2026-12-26",
+            "weekday": "saturday",
+            "status": "weekend",
+            "markers": [],
+            "rotation_day": null
+          },
+          {
+            "date": "2026-12-27",
+            "weekday": "sunday",
+            "status": "weekend",
+            "markers": [],
+            "rotation_day": null
+          },
+          {
+            "date": "2026-12-28",
+            "weekday": "monday",
+            "status": "no_class",
+            "markers": [
+              "holiday"
+            ],
+            "rotation_day": null
+          },
+          {
+            "date": "2026-12-29",
+            "weekday": "tuesday",
+            "status": "no_class",
+            "markers": [
+              "holiday"
+            ],
+            "rotation_day": null
+          },
+          {
+            "date": "2026-12-30",
+            "weekday": "wednesday",
+            "status": "no_class",
+            "markers": [
+              "holiday"
+            ],
+            "rotation_day": null
+          },
+          {
+            "date": "2026-12-31",
+            "weekday": "thursday",
+            "status": "no_class",
+            "markers": [
+              "holiday"
+            ],
+            "rotation_day": null
+          }
+        ]
+      },
+      {
+        "year": 2027,
+        "month": 1,
+        "month_name_fr": "janvier",
+        "dates": [
+          {
+            "date": "2027-01-01",
+            "weekday": "friday",
+            "status": "no_class",
+            "markers": [
+              "holiday"
+            ],
+            "rotation_day": null
+          },
+          {
+            "date": "2027-01-02",
+            "weekday": "saturday",
+            "status": "weekend",
+            "markers": [],
+            "rotation_day": null
+          },
+          {
+            "date": "2027-01-03",
+            "weekday": "sunday",
+            "status": "weekend",
+            "markers": [],
+            "rotation_day": null
+          },
+          {
+            "date": "2027-01-04",
+            "weekday": "monday",
+            "status": "no_class",
+            "markers": [
+              "fixed_pedagogical_day"
+            ],
+            "rotation_day": null
+          },
+          {
+            "date": "2027-01-05",
+            "weekday": "tuesday",
+            "status": "class_day",
+            "markers": [],
+            "rotation_day": 3
+          },
+          {
+            "date": "2027-01-06",
+            "weekday": "wednesday",
+            "status": "class_day",
+            "markers": [],
+            "rotation_day": 4
+          },
+          {
+            "date": "2027-01-07",
+            "weekday": "thursday",
+            "status": "class_day",
+            "markers": [],
+            "rotation_day": 5
+          },
+          {
+            "date": "2027-01-08",
+            "weekday": "friday",
+            "status": "class_day",
+            "markers": [],
+            "rotation_day": 6
+          },
+          {
+            "date": "2027-01-09",
+            "weekday": "saturday",
+            "status": "weekend",
+            "markers": [],
+            "rotation_day": null
+          },
+          {
+            "date": "2027-01-10",
+            "weekday": "sunday",
+            "status": "weekend",
+            "markers": [],
+            "rotation_day": null
+          },
+          {
+            "date": "2027-01-11",
+            "weekday": "monday",
+            "status": "class_day",
+            "markers": [],
+            "rotation_day": 7
+          },
+          {
+            "date": "2027-01-12",
+            "weekday": "tuesday",
+            "status": "class_day",
+            "markers": [],
+            "rotation_day": 8
+          },
+          {
+            "date": "2027-01-13",
+            "weekday": "wednesday",
+            "status": "class_day",
+            "markers": [],
+            "rotation_day": 9
+          },
+          {
+            "date": "2027-01-14",
+            "weekday": "thursday",
+            "status": "class_day",
+            "markers": [],
+            "rotation_day": 1
+          },
+          {
+            "date": "2027-01-15",
+            "weekday": "friday",
+            "status": "class_day",
+            "markers": [],
+            "rotation_day": 2
+          },
+          {
+            "date": "2027-01-16",
+            "weekday": "saturday",
+            "status": "weekend",
+            "markers": [],
+            "rotation_day": null
+          },
+          {
+            "date": "2027-01-17",
+            "weekday": "sunday",
+            "status": "weekend",
+            "markers": [],
+            "rotation_day": null
+          },
+          {
+            "date": "2027-01-18",
+            "weekday": "monday",
+            "status": "class_day",
+            "markers": [],
+            "rotation_day": 3
+          },
+          {
+            "date": "2027-01-19",
+            "weekday": "tuesday",
+            "status": "class_day",
+            "markers": [],
+            "rotation_day": 4
+          },
+          {
+            "date": "2027-01-20",
+            "weekday": "wednesday",
+            "status": "class_day",
+            "markers": [],
+            "rotation_day": 5
+          },
+          {
+            "date": "2027-01-21",
+            "weekday": "thursday",
+            "status": "class_day",
+            "markers": [],
+            "rotation_day": 6
+          },
+          {
+            "date": "2027-01-22",
+            "weekday": "friday",
+            "status": "no_class",
+            "markers": [
+              "pedagogical_pool_day"
+            ],
+            "rotation_day": null
+          },
+          {
+            "date": "2027-01-23",
+            "weekday": "saturday",
+            "status": "weekend",
+            "markers": [],
+            "rotation_day": null
+          },
+          {
+            "date": "2027-01-24",
+            "weekday": "sunday",
+            "status": "weekend",
+            "markers": [],
+            "rotation_day": null
+          },
+          {
+            "date": "2027-01-25",
+            "weekday": "monday",
+            "status": "class_day",
+            "markers": [],
+            "rotation_day": 8
+          },
+          {
+            "date": "2027-01-26",
+            "weekday": "tuesday",
+            "status": "class_day",
+            "markers": [],
+            "rotation_day": 9
+          },
+          {
+            "date": "2027-01-27",
+            "weekday": "wednesday",
+            "status": "class_day",
+            "markers": [],
+            "rotation_day": 1
+          },
+          {
+            "date": "2027-01-28",
+            "weekday": "thursday",
+            "status": "class_day",
+            "markers": [],
+            "rotation_day": 2
+          },
+          {
+            "date": "2027-01-29",
+            "weekday": "friday",
+            "status": "class_day",
+            "markers": [],
+            "rotation_day": 3
+          },
+          {
+            "date": "2027-01-30",
+            "weekday": "saturday",
+            "status": "weekend",
+            "markers": [],
+            "rotation_day": null
+          },
+          {
+            "date": "2027-01-31",
+            "weekday": "sunday",
+            "status": "weekend",
+            "markers": [],
+            "rotation_day": null
+          }
+        ]
+      },
+      {
+        "year": 2027,
+        "month": 2,
+        "month_name_fr": "février",
+        "dates": [
+          {
+            "date": "2027-02-01",
+            "weekday": "monday",
+            "status": "class_day",
+            "markers": [],
+            "rotation_day": 4
+          },
+          {
+            "date": "2027-02-02",
+            "weekday": "tuesday",
+            "status": "class_day",
+            "markers": [],
+            "rotation_day": 5
+          },
+          {
+            "date": "2027-02-03",
+            "weekday": "wednesday",
+            "status": "class_day",
+            "markers": [],
+            "rotation_day": 6
+          },
+          {
+            "date": "2027-02-04",
+            "weekday": "thursday",
+            "status": "class_day",
+            "markers": [],
+            "rotation_day": 7
+          },
+          {
+            "date": "2027-02-05",
+            "weekday": "friday",
+            "status": "class_day",
+            "markers": [],
+            "rotation_day": 8
+          },
+          {
+            "date": "2027-02-06",
+            "weekday": "saturday",
+            "status": "weekend",
+            "markers": [],
+            "rotation_day": null
+          },
+          {
+            "date": "2027-02-07",
+            "weekday": "sunday",
+            "status": "weekend",
+            "markers": [],
+            "rotation_day": null
+          },
+          {
+            "date": "2027-02-08",
+            "weekday": "monday",
+            "status": "class_day",
+            "markers": [],
+            "rotation_day": 9
+          },
+          {
+            "date": "2027-02-09",
+            "weekday": "tuesday",
+            "status": "class_day",
+            "markers": [],
+            "rotation_day": 1
+          },
+          {
+            "date": "2027-02-10",
+            "weekday": "wednesday",
+            "status": "class_day",
+            "markers": [],
+            "rotation_day": 2
+          },
+          {
+            "date": "2027-02-11",
+            "weekday": "thursday",
+            "status": "class_day",
+            "markers": [],
+            "rotation_day": 3
+          },
+          {
+            "date": "2027-02-12",
+            "weekday": "friday",
+            "status": "no_class",
+            "markers": [
+              "teacher_scheduled_fixed_pedagogical_day"
+            ],
+            "rotation_day": null
+          },
+          {
+            "date": "2027-02-13",
+            "weekday": "saturday",
+            "status": "weekend",
+            "markers": [],
+            "rotation_day": null
+          },
+          {
+            "date": "2027-02-14",
+            "weekday": "sunday",
+            "status": "weekend",
+            "markers": [],
+            "rotation_day": null
+          },
+          {
+            "date": "2027-02-15",
+            "weekday": "monday",
+            "status": "class_day",
+            "markers": [],
+            "rotation_day": 4
+          },
+          {
+            "date": "2027-02-16",
+            "weekday": "tuesday",
+            "status": "class_day",
+            "markers": [],
+            "rotation_day": 5
+          },
+          {
+            "date": "2027-02-17",
+            "weekday": "wednesday",
+            "status": "class_day",
+            "markers": [],
+            "rotation_day": 6
+          },
+          {
+            "date": "2027-02-18",
+            "weekday": "thursday",
+            "status": "class_day",
+            "markers": [],
+            "rotation_day": 7
+          },
+          {
+            "date": "2027-02-19",
+            "weekday": "friday",
+            "status": "no_class",
+            "markers": [
+              "school_pedagogical_day"
+            ],
+            "rotation_day": null
+          },
+          {
+            "date": "2027-02-20",
+            "weekday": "saturday",
+            "status": "weekend",
+            "markers": [],
+            "rotation_day": null
+          },
+          {
+            "date": "2027-02-21",
+            "weekday": "sunday",
+            "status": "weekend",
+            "markers": [],
+            "rotation_day": null
+          },
+          {
+            "date": "2027-02-22",
+            "weekday": "monday",
+            "status": "class_day",
+            "markers": [],
+            "rotation_day": 9
+          },
+          {
+            "date": "2027-02-23",
+            "weekday": "tuesday",
+            "status": "class_day",
+            "markers": [],
+            "rotation_day": 1
+          },
+          {
+            "date": "2027-02-24",
+            "weekday": "wednesday",
+            "status": "class_day",
+            "markers": [],
+            "rotation_day": 2
+          },
+          {
+            "date": "2027-02-25",
+            "weekday": "thursday",
+            "status": "class_day",
+            "markers": [],
+            "rotation_day": 3
+          },
+          {
+            "date": "2027-02-26",
+            "weekday": "friday",
+            "status": "class_day",
+            "markers": [],
+            "rotation_day": 4
+          },
+          {
+            "date": "2027-02-27",
+            "weekday": "saturday",
+            "status": "weekend",
+            "markers": [],
+            "rotation_day": null
+          },
+          {
+            "date": "2027-02-28",
+            "weekday": "sunday",
+            "status": "weekend",
+            "markers": [],
+            "rotation_day": null
+          }
+        ]
+      },
+      {
+        "year": 2027,
+        "month": 3,
+        "month_name_fr": "mars",
+        "dates": [
+          {
+            "date": "2027-03-01",
+            "weekday": "monday",
+            "status": "no_class",
+            "markers": [
+              "spring_break"
+            ],
+            "rotation_day": null
+          },
+          {
+            "date": "2027-03-02",
+            "weekday": "tuesday",
+            "status": "no_class",
+            "markers": [
+              "spring_break"
+            ],
+            "rotation_day": null
+          },
+          {
+            "date": "2027-03-03",
+            "weekday": "wednesday",
+            "status": "no_class",
+            "markers": [
+              "spring_break"
+            ],
+            "rotation_day": null
+          },
+          {
+            "date": "2027-03-04",
+            "weekday": "thursday",
+            "status": "no_class",
+            "markers": [
+              "spring_break"
+            ],
+            "rotation_day": null
+          },
+          {
+            "date": "2027-03-05",
+            "weekday": "friday",
+            "status": "no_class",
+            "markers": [
+              "spring_break"
+            ],
+            "rotation_day": null
+          },
+          {
+            "date": "2027-03-06",
+            "weekday": "saturday",
+            "status": "weekend",
+            "markers": [],
+            "rotation_day": null
+          },
+          {
+            "date": "2027-03-07",
+            "weekday": "sunday",
+            "status": "weekend",
+            "markers": [],
+            "rotation_day": null
+          },
+          {
+            "date": "2027-03-08",
+            "weekday": "monday",
+            "status": "class_day",
+            "markers": [],
+            "rotation_day": 5
+          },
+          {
+            "date": "2027-03-09",
+            "weekday": "tuesday",
+            "status": "class_day",
+            "markers": [],
+            "rotation_day": 6
+          },
+          {
+            "date": "2027-03-10",
+            "weekday": "wednesday",
+            "status": "class_day",
+            "markers": [],
+            "rotation_day": 7
+          },
+          {
+            "date": "2027-03-11",
+            "weekday": "thursday",
+            "status": "class_day",
+            "markers": [],
+            "rotation_day": 8
+          },
+          {
+            "date": "2027-03-12",
+            "weekday": "friday",
+            "status": "class_day",
+            "markers": [],
+            "rotation_day": 9
+          },
+          {
+            "date": "2027-03-13",
+            "weekday": "saturday",
+            "status": "weekend",
+            "markers": [],
+            "rotation_day": null
+          },
+          {
+            "date": "2027-03-14",
+            "weekday": "sunday",
+            "status": "weekend",
+            "markers": [],
+            "rotation_day": null
+          },
+          {
+            "date": "2027-03-15",
+            "weekday": "monday",
+            "status": "class_day",
+            "markers": [],
+            "rotation_day": 1
+          },
+          {
+            "date": "2027-03-16",
+            "weekday": "tuesday",
+            "status": "class_day",
+            "markers": [],
+            "rotation_day": 2
+          },
+          {
+            "date": "2027-03-17",
+            "weekday": "wednesday",
+            "status": "class_day",
+            "markers": [],
+            "rotation_day": 3
+          },
+          {
+            "date": "2027-03-18",
+            "weekday": "thursday",
+            "status": "class_day",
+            "markers": [],
+            "rotation_day": 4
+          },
+          {
+            "date": "2027-03-19",
+            "weekday": "friday",
+            "status": "class_day",
+            "markers": [],
+            "rotation_day": 5
+          },
+          {
+            "date": "2027-03-20",
+            "weekday": "saturday",
+            "status": "weekend",
+            "markers": [],
+            "rotation_day": null
+          },
+          {
+            "date": "2027-03-21",
+            "weekday": "sunday",
+            "status": "weekend",
+            "markers": [],
+            "rotation_day": null
+          },
+          {
+            "date": "2027-03-22",
+            "weekday": "monday",
+            "status": "class_day",
+            "markers": [],
+            "rotation_day": 6
+          },
+          {
+            "date": "2027-03-23",
+            "weekday": "tuesday",
+            "status": "class_day",
+            "markers": [],
+            "rotation_day": 7
+          },
+          {
+            "date": "2027-03-24",
+            "weekday": "wednesday",
+            "status": "class_day",
+            "markers": [],
+            "rotation_day": 8
+          },
+          {
+            "date": "2027-03-25",
+            "weekday": "thursday",
+            "status": "class_day",
+            "markers": [],
+            "rotation_day": 9
+          },
+          {
+            "date": "2027-03-26",
+            "weekday": "friday",
+            "status": "no_class",
+            "markers": [
+              "holiday"
+            ],
+            "rotation_day": null
+          },
+          {
+            "date": "2027-03-27",
+            "weekday": "saturday",
+            "status": "weekend",
+            "markers": [],
+            "rotation_day": null
+          },
+          {
+            "date": "2027-03-28",
+            "weekday": "sunday",
+            "status": "weekend",
+            "markers": [],
+            "rotation_day": null
+          },
+          {
+            "date": "2027-03-29",
+            "weekday": "monday",
+            "status": "no_class",
+            "markers": [
+              "holiday"
+            ],
+            "rotation_day": null
+          },
+          {
+            "date": "2027-03-30",
+            "weekday": "tuesday",
+            "status": "class_day",
+            "markers": [],
+            "rotation_day": 1
+          },
+          {
+            "date": "2027-03-31",
+            "weekday": "wednesday",
+            "status": "class_day",
+            "markers": [],
+            "rotation_day": 2
+          }
+        ]
+      },
+      {
+        "year": 2027,
+        "month": 4,
+        "month_name_fr": "avril",
+        "dates": [
+          {
+            "date": "2027-04-01",
+            "weekday": "thursday",
+            "status": "class_day",
+            "markers": [],
+            "rotation_day": 3
+          },
+          {
+            "date": "2027-04-02",
+            "weekday": "friday",
+            "status": "class_day",
+            "markers": [],
+            "rotation_day": 4
+          },
+          {
+            "date": "2027-04-03",
+            "weekday": "saturday",
+            "status": "weekend",
+            "markers": [],
+            "rotation_day": null
+          },
+          {
+            "date": "2027-04-04",
+            "weekday": "sunday",
+            "status": "weekend",
+            "markers": [],
+            "rotation_day": null
+          },
+          {
+            "date": "2027-04-05",
+            "weekday": "monday",
+            "status": "class_day",
+            "markers": [],
+            "rotation_day": 5
+          },
+          {
+            "date": "2027-04-06",
+            "weekday": "tuesday",
+            "status": "class_day",
+            "markers": [],
+            "rotation_day": 6
+          },
+          {
+            "date": "2027-04-07",
+            "weekday": "wednesday",
+            "status": "class_day",
+            "markers": [],
+            "rotation_day": 7
+          },
+          {
+            "date": "2027-04-08",
+            "weekday": "thursday",
+            "status": "class_day",
+            "markers": [],
+            "rotation_day": 8
+          },
+          {
+            "date": "2027-04-09",
+            "weekday": "friday",
+            "status": "no_class",
+            "markers": [
+              "fixed_pedagogical_day"
+            ],
+            "rotation_day": null
+          },
+          {
+            "date": "2027-04-10",
+            "weekday": "saturday",
+            "status": "weekend",
+            "markers": [],
+            "rotation_day": null
+          },
+          {
+            "date": "2027-04-11",
+            "weekday": "sunday",
+            "status": "weekend",
+            "markers": [],
+            "rotation_day": null
+          },
+          {
+            "date": "2027-04-12",
+            "weekday": "monday",
+            "status": "class_day",
+            "markers": [],
+            "rotation_day": 9
+          },
+          {
+            "date": "2027-04-13",
+            "weekday": "tuesday",
+            "status": "class_day",
+            "markers": [],
+            "rotation_day": 1
+          },
+          {
+            "date": "2027-04-14",
+            "weekday": "wednesday",
+            "status": "class_day",
+            "markers": [],
+            "rotation_day": 2
+          },
+          {
+            "date": "2027-04-15",
+            "weekday": "thursday",
+            "status": "class_day",
+            "markers": [],
+            "rotation_day": 3
+          },
+          {
+            "date": "2027-04-16",
+            "weekday": "friday",
+            "status": "class_day",
+            "markers": [],
+            "rotation_day": 4
+          },
+          {
+            "date": "2027-04-17",
+            "weekday": "saturday",
+            "status": "weekend",
+            "markers": [],
+            "rotation_day": null
+          },
+          {
+            "date": "2027-04-18",
+            "weekday": "sunday",
+            "status": "weekend",
+            "markers": [],
+            "rotation_day": null
+          },
+          {
+            "date": "2027-04-19",
+            "weekday": "monday",
+            "status": "no_class",
+            "markers": [
+              "conditional_pedagogical_day"
+            ],
+            "rotation_day": null
+          },
+          {
+            "date": "2027-04-20",
+            "weekday": "tuesday",
+            "status": "class_day",
+            "markers": [],
+            "rotation_day": 5
+          },
+          {
+            "date": "2027-04-21",
+            "weekday": "wednesday",
+            "status": "class_day",
+            "markers": [],
+            "rotation_day": 6
+          },
+          {
+            "date": "2027-04-22",
+            "weekday": "thursday",
+            "status": "class_day",
+            "markers": [],
+            "rotation_day": 7
+          },
+          {
+            "date": "2027-04-23",
+            "weekday": "friday",
+            "status": "class_day",
+            "markers": [],
+            "rotation_day": 8
+          },
+          {
+            "date": "2027-04-24",
+            "weekday": "saturday",
+            "status": "weekend",
+            "markers": [],
+            "rotation_day": null
+          },
+          {
+            "date": "2027-04-25",
+            "weekday": "sunday",
+            "status": "weekend",
+            "markers": [],
+            "rotation_day": null
+          },
+          {
+            "date": "2027-04-26",
+            "weekday": "monday",
+            "status": "class_day",
+            "markers": [],
+            "rotation_day": 9
+          },
+          {
+            "date": "2027-04-27",
+            "weekday": "tuesday",
+            "status": "class_day",
+            "markers": [],
+            "rotation_day": 1
+          },
+          {
+            "date": "2027-04-28",
+            "weekday": "wednesday",
+            "status": "class_day",
+            "markers": [],
+            "rotation_day": 2
+          },
+          {
+            "date": "2027-04-29",
+            "weekday": "thursday",
+            "status": "class_day",
+            "markers": [],
+            "rotation_day": 3
+          },
+          {
+            "date": "2027-04-30",
+            "weekday": "friday",
+            "status": "class_day",
+            "markers": [],
+            "rotation_day": 4
+          }
+        ]
+      },
+      {
+        "year": 2027,
+        "month": 5,
+        "month_name_fr": "mai",
+        "dates": [
+          {
+            "date": "2027-05-01",
+            "weekday": "saturday",
+            "status": "weekend",
+            "markers": [],
+            "rotation_day": null
+          },
+          {
+            "date": "2027-05-02",
+            "weekday": "sunday",
+            "status": "weekend",
+            "markers": [],
+            "rotation_day": null
+          },
+          {
+            "date": "2027-05-03",
+            "weekday": "monday",
+            "status": "class_day",
+            "markers": [],
+            "rotation_day": 5
+          },
+          {
+            "date": "2027-05-04",
+            "weekday": "tuesday",
+            "status": "class_day",
+            "markers": [],
+            "rotation_day": 6
+          },
+          {
+            "date": "2027-05-05",
+            "weekday": "wednesday",
+            "status": "class_day",
+            "markers": [],
+            "rotation_day": 7
+          },
+          {
+            "date": "2027-05-06",
+            "weekday": "thursday",
+            "status": "class_day",
+            "markers": [],
+            "rotation_day": 8
+          },
+          {
+            "date": "2027-05-07",
+            "weekday": "friday",
+            "status": "no_class",
+            "markers": [
+              "fixed_pedagogical_day"
+            ],
+            "rotation_day": null
+          },
+          {
+            "date": "2027-05-08",
+            "weekday": "saturday",
+            "status": "weekend",
+            "markers": [],
+            "rotation_day": null
+          },
+          {
+            "date": "2027-05-09",
+            "weekday": "sunday",
+            "status": "weekend",
+            "markers": [],
+            "rotation_day": null
+          },
+          {
+            "date": "2027-05-10",
+            "weekday": "monday",
+            "status": "class_day",
+            "markers": [],
+            "rotation_day": 9
+          },
+          {
+            "date": "2027-05-11",
+            "weekday": "tuesday",
+            "status": "class_day",
+            "markers": [],
+            "rotation_day": 1
+          },
+          {
+            "date": "2027-05-12",
+            "weekday": "wednesday",
+            "status": "class_day",
+            "markers": [],
+            "rotation_day": 2
+          },
+          {
+            "date": "2027-05-13",
+            "weekday": "thursday",
+            "status": "class_day",
+            "markers": [],
+            "rotation_day": 3
+          },
+          {
+            "date": "2027-05-14",
+            "weekday": "friday",
+            "status": "class_day",
+            "markers": [],
+            "rotation_day": 4
+          },
+          {
+            "date": "2027-05-15",
+            "weekday": "saturday",
+            "status": "weekend",
+            "markers": [],
+            "rotation_day": null
+          },
+          {
+            "date": "2027-05-16",
+            "weekday": "sunday",
+            "status": "weekend",
+            "markers": [],
+            "rotation_day": null
+          },
+          {
+            "date": "2027-05-17",
+            "weekday": "monday",
+            "status": "class_day",
+            "markers": [],
+            "rotation_day": 5
+          },
+          {
+            "date": "2027-05-18",
+            "weekday": "tuesday",
+            "status": "class_day",
+            "markers": [],
+            "rotation_day": 6
+          },
+          {
+            "date": "2027-05-19",
+            "weekday": "wednesday",
+            "status": "class_day",
+            "markers": [],
+            "rotation_day": 7
+          },
+          {
+            "date": "2027-05-20",
+            "weekday": "thursday",
+            "status": "class_day",
+            "markers": [],
+            "rotation_day": 8
+          },
+          {
+            "date": "2027-05-21",
+            "weekday": "friday",
+            "status": "no_class",
+            "markers": [
+              "school_pedagogical_day"
+            ],
+            "rotation_day": null
+          },
+          {
+            "date": "2027-05-22",
+            "weekday": "saturday",
+            "status": "weekend",
+            "markers": [],
+            "rotation_day": null
+          },
+          {
+            "date": "2027-05-23",
+            "weekday": "sunday",
+            "status": "weekend",
+            "markers": [],
+            "rotation_day": null
+          },
+          {
+            "date": "2027-05-24",
+            "weekday": "monday",
+            "status": "no_class",
+            "markers": [
+              "holiday"
+            ],
+            "rotation_day": null
+          },
+          {
+            "date": "2027-05-25",
+            "weekday": "tuesday",
+            "status": "class_day",
+            "markers": [],
+            "rotation_day": 1
+          },
+          {
+            "date": "2027-05-26",
+            "weekday": "wednesday",
+            "status": "class_day",
+            "markers": [],
+            "rotation_day": 2
+          },
+          {
+            "date": "2027-05-27",
+            "weekday": "thursday",
+            "status": "class_day",
+            "markers": [],
+            "rotation_day": 3
+          },
+          {
+            "date": "2027-05-28",
+            "weekday": "friday",
+            "status": "class_day",
+            "markers": [],
+            "rotation_day": 4
+          },
+          {
+            "date": "2027-05-29",
+            "weekday": "saturday",
+            "status": "weekend",
+            "markers": [],
+            "rotation_day": null
+          },
+          {
+            "date": "2027-05-30",
+            "weekday": "sunday",
+            "status": "weekend",
+            "markers": [],
+            "rotation_day": null
+          },
+          {
+            "date": "2027-05-31",
+            "weekday": "monday",
+            "status": "class_day",
+            "markers": [],
+            "rotation_day": 5
+          }
+        ]
+      },
+      {
+        "year": 2027,
+        "month": 6,
+        "month_name_fr": "juin",
+        "dates": [
+          {
+            "date": "2027-06-01",
+            "weekday": "tuesday",
+            "status": "class_day",
+            "markers": [],
+            "rotation_day": 6
+          },
+          {
+            "date": "2027-06-02",
+            "weekday": "wednesday",
+            "status": "class_day",
+            "markers": [],
+            "rotation_day": 7
+          },
+          {
+            "date": "2027-06-03",
+            "weekday": "thursday",
+            "status": "class_day",
+            "markers": [],
+            "rotation_day": 8
+          },
+          {
+            "date": "2027-06-04",
+            "weekday": "friday",
+            "status": "no_class",
+            "markers": [
+              "conditional_pedagogical_day"
+            ],
+            "rotation_day": null
+          },
+          {
+            "date": "2027-06-05",
+            "weekday": "saturday",
+            "status": "weekend",
+            "markers": [],
+            "rotation_day": null
+          },
+          {
+            "date": "2027-06-06",
+            "weekday": "sunday",
+            "status": "weekend",
+            "markers": [],
+            "rotation_day": null
+          },
+          {
+            "date": "2027-06-07",
+            "weekday": "monday",
+            "status": "class_day",
+            "markers": [],
+            "rotation_day": 9
+          },
+          {
+            "date": "2027-06-08",
+            "weekday": "tuesday",
+            "status": "class_day",
+            "markers": [],
+            "rotation_day": 1
+          },
+          {
+            "date": "2027-06-09",
+            "weekday": "wednesday",
+            "status": "class_day",
+            "markers": [],
+            "rotation_day": 2
+          },
+          {
+            "date": "2027-06-10",
+            "weekday": "thursday",
+            "status": "class_day",
+            "markers": [],
+            "rotation_day": 3
+          },
+          {
+            "date": "2027-06-11",
+            "weekday": "friday",
+            "status": "class_day",
+            "markers": [],
+            "rotation_day": 4
+          },
+          {
+            "date": "2027-06-12",
+            "weekday": "saturday",
+            "status": "weekend",
+            "markers": [],
+            "rotation_day": null
+          },
+          {
+            "date": "2027-06-13",
+            "weekday": "sunday",
+            "status": "weekend",
+            "markers": [],
+            "rotation_day": null
+          },
+          {
+            "date": "2027-06-14",
+            "weekday": "monday",
+            "status": "class_day",
+            "markers": [],
+            "rotation_day": 5
+          },
+          {
+            "date": "2027-06-15",
+            "weekday": "tuesday",
+            "status": "class_day",
+            "markers": [],
+            "rotation_day": 6
+          },
+          {
+            "date": "2027-06-16",
+            "weekday": "wednesday",
+            "status": "class_day",
+            "markers": [],
+            "rotation_day": 7
+          },
+          {
+            "date": "2027-06-17",
+            "weekday": "thursday",
+            "status": "class_day",
+            "markers": [],
+            "rotation_day": 8
+          },
+          {
+            "date": "2027-06-18",
+            "weekday": "friday",
+            "status": "class_day",
+            "markers": [],
+            "rotation_day": 9
+          },
+          {
+            "date": "2027-06-19",
+            "weekday": "saturday",
+            "status": "weekend",
+            "markers": [],
+            "rotation_day": null
+          },
+          {
+            "date": "2027-06-20",
+            "weekday": "sunday",
+            "status": "weekend",
+            "markers": [],
+            "rotation_day": null
+          },
+          {
+            "date": "2027-06-21",
+            "weekday": "monday",
+            "status": "class_day",
+            "markers": [],
+            "rotation_day": 1
+          },
+          {
+            "date": "2027-06-22",
+            "weekday": "tuesday",
+            "status": "class_day",
+            "markers": [],
+            "rotation_day": 2
+          },
+          {
+            "date": "2027-06-23",
+            "weekday": "wednesday",
+            "status": "class_day",
+            "markers": [],
+            "rotation_day": 3
+          },
+          {
+            "date": "2027-06-24",
+            "weekday": "thursday",
+            "status": "not_in_class_session",
+            "markers": [
+              "holiday"
+            ],
+            "rotation_day": null
+          },
+          {
+            "date": "2027-06-25",
+            "weekday": "friday",
+            "status": "not_in_class_session",
+            "markers": [
+              "fixed_pedagogical_day"
+            ],
+            "rotation_day": null
+          },
+          {
+            "date": "2027-06-26",
+            "weekday": "saturday",
+            "status": "weekend",
+            "markers": [],
+            "rotation_day": null
+          },
+          {
+            "date": "2027-06-27",
+            "weekday": "sunday",
+            "status": "weekend",
+            "markers": [],
+            "rotation_day": null
+          },
+          {
+            "date": "2027-06-28",
+            "weekday": "monday",
+            "status": "not_in_class_session",
+            "markers": [
+              "fixed_pedagogical_day"
+            ],
+            "rotation_day": null
+          },
+          {
+            "date": "2027-06-29",
+            "weekday": "tuesday",
+            "status": "not_in_class_session",
+            "markers": [
+              "fixed_pedagogical_day"
+            ],
+            "rotation_day": null
+          },
+          {
+            "date": "2027-06-30",
+            "weekday": "wednesday",
+            "status": "not_in_class_session",
+            "markers": [
+              "fixed_pedagogical_day"
+            ],
+            "rotation_day": null
+          }
+        ]
+      }
+    ],
+    "interpretation_notes": [
+      "The small number beside each class date denotes the 1–9 timetable day. Rotation advances over 180 class days plus the January 22 pool pedagogical day and February 19 / May 21 school pedagogical days, based on the printed numbers before and after these dates.",
+      "Every visible date from July 2026 through June 2027 is represented, including weekends.",
+      "Nonclass and event markers have been read from the colored cell fills and drawn symbols.",
+      "The holiday count of 16 covers September 2026 through June 2027, not the separately circled July 1, 2026.",
+      "Conditional pedagogical days are treated as no-class days as shown on this published calendar; their status could depend on school decisions."
+    ]
+  },
+  "cross_reference": {
+    "rotation_day_source": "calendar.months[].dates[].rotation_day",
+    "timetable_lookup": "timetable.days[].rotation_day",
+    "note": "Match rotation_day to retrieve all four periods for a dated class day."
+  }
+}

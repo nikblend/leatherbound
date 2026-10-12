@@ -1,0 +1,21 @@
+/* ===== month.css — The month page: a strip of months in a ruled grid of days ===== */
+.scroller{margin:0 -16px;padding:0 16px;overflow-x:auto;scroll-snap-type:x proximity;scroll-padding-left:16px;scrollbar-width:none;cursor:grab}
+.scroller::-webkit-scrollbar{display:none}
+.sheet{width:max-content;padding-right:16px}
+.sheet.turn{animation:turn .25s ease-out}
+@keyframes turn{from{opacity:0;transform:translateX(14px) rotate(.4deg)}}
+.wk,.grid{display:grid;grid-template-columns:repeat(7,var(--cell))}
+.wk span{font-size:12px;font-weight:700;letter-spacing:.08em;color:var(--soft);padding:0 0 8px 10px}
+.gw{position:relative}
+.rules{position:absolute;left:0;top:0;width:calc(7*var(--cell) + 2px);height:calc(var(--rows)*var(--cell) + 2px);pointer-events:none;filter:url(#wob);background:linear-gradient(to right,var(--pencil) 1.3px,transparent 1.3px) 0 0/var(--cell) var(--cell),linear-gradient(to bottom,var(--pencil) 1.3px,transparent 1.3px) 0 0/var(--cell) var(--cell)}
+.grid{position:relative;grid-auto-rows:var(--cell)}
+.day{position:relative;overflow:hidden;scroll-snap-align:start;padding:6px 5px 0 12px;text-align:left;display:flex;flex-direction:column;justify-content:flex-start;align-items:flex-start}
+.day b{display:block;font:700 28px/1.1 'Architects Daughter',cursive;color:var(--pen)}
+.day.out b{color:#a99a7c;font-weight:500}
+.day.sel{background:rgba(250,214,90,.3);border-radius:3px 7px 4px 6px}
+.day b.today{width:42px;height:38px;margin:-4px 0 -3px -13px;padding:4px 0 0 0;text-align:center;color:var(--vermilion);background:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 44 40'><path d='M22 3C10 2 2 10 3 21c1 11 11 17 22 15 12-2 17-11 15-21C38 8 29 3 18 5' fill='none' stroke='%23c9402c' stroke-width='2.2' stroke-linecap='round'/></svg>") center/contain no-repeat}
+.day u{display:block;align-self:stretch;margin:4px 0 0 -2px;padding:0 3px 1px 5px;font:600 16px/1.25 'Patrick Hand',cursive;color:#1f2540;text-decoration:none;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;border-left:3px solid var(--c);border-radius:2px 6px 4px 7px;background:color-mix(in srgb,var(--c) 28%,transparent);transform:rotate(-.8deg)}
+.day u+u{transform:rotate(.7deg)}
+.day em{position:absolute;right:7px;top:11px;display:flex;align-items:center;gap:3px;font:700 17px 'Architects Daughter',cursive;font-style:normal;color:var(--soft)}
+.day s{width:9px;height:9px;border-radius:50%;background:var(--c);text-decoration:none;box-shadow:0 1px 1px rgba(40,20,0,.35)}
+

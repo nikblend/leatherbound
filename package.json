@@ -1,0 +1,13 @@
+{
+  "name": "leatherbound",
+  "private": true,
+  "description": "The planner page and the iOS wrapper around it.",
+  "scripts": {
+    "selfcheck": "node tools/selfcheck.mjs",
+    "icons": "python3 tools/make-icons.py",
+    "serve": "python3 -m http.server 8137 --bind 127.0.0.1 --directory web"
+  },
+  "devDependencies": {
+    "jsdom": "^26.1.0"
+  }
+}

@@ -1,0 +1,19 @@
+/* ===== platform.css — the app shell =====
+   The prototype drew a phone on the page; on a phone that drawing is removed by
+   responsive.css and the app becomes full-bleed, which is exactly how the iOS
+   wrapper wants it.  What is left is the handful of behaviours a web page does
+   not need and a touch app does: no browser callout on long press, no rubber
+   band behind the sheet, no accidental selection while dragging the month strip,
+   and no double-tap zoom on the controls. */
+
+html{-webkit-text-size-adjust:100%}
+body{overscroll-behavior:none}
+button,.day,.tle,.dall,.we,.wd,.wdn,.yc,.dsh,.dfoot,.dtag,.stamp,.sheet,header{-webkit-touch-callout:none;user-select:none;-webkit-user-select:none}
+button,.day,.fab,.dd-btn,.go{touch-action:manipulation}
+#txt,#tm{user-select:text;-webkit-user-select:text;-webkit-touch-callout:default}
+
+/* on a phone the page itself must never scroll — the sheet inside it does */
+@media (max-width:480px){
+  body{position:fixed;inset:0;overflow:hidden}
+  .device{background:none}
+}

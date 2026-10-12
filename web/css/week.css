@@ -1,0 +1,29 @@
+/* ===== week.css — The week page: seven rows, all-day first, then the clock ===== */
+.wv{display:none;position:relative;flex:1;min-height:0}
+main[data-v=week]{overflow:hidden;padding:8px 0 0}
+main[data-v=week] #sc{display:none}
+main[data-v=week] .wv{display:block}
+main[data-v=week] .trow{margin:8px 20px 8px}
+main[data-v=week] h1{font-size:30px}
+main[data-v=week] #yr{font-size:32px}
+.ws{position:absolute;inset:0;overflow:auto;scrollbar-width:none;cursor:grab}
+.ws::-webkit-scrollbar{display:none}
+/* ===== NEW week view: one large, detailed row per day (scrolls) ===== */
+.wl{display:flex;flex-direction:column;padding:0 16px 120px}
+.wl.turn{animation:turn .25s ease-out}
+.wday{display:flex;gap:14px;align-items:flex-start;width:100%;min-height:132px;padding:16px 8px 16px 0;text-align:left;border-bottom:1.3px solid var(--pencil)}
+.wday.t{background:rgba(250,214,90,.22);border-radius:3px 7px 4px 6px}
+.wday.past{opacity:.6}
+.wdn{flex:none;width:68px;display:flex;flex-direction:column;align-items:center}
+.wdn span{font:700 21px/1.1 'Playfair Display',Georgia,serif;letter-spacing:0;color:var(--ink)}
+.wday.t .wdn span{color:var(--vermilion)}
+.wdn b{display:block;font:700 44px/1.05 'Architects Daughter',cursive;color:var(--pen)}
+.wdn small{margin-top:4px;font:600 17px 'Architects Daughter',cursive;color:var(--soft);white-space:nowrap}
+.wday.t .wdn b{width:58px;height:52px;margin-bottom:-2px;padding:6px 0 0;text-align:center;color:var(--vermilion);background:var(--circ) center/contain no-repeat}
+.wev{flex:1;min-width:0;display:flex;flex-direction:column;gap:9px;padding-top:4px}
+.ev{display:flex;align-items:flex-start;gap:10px;min-width:0}
+.ev .tm{flex:none;width:72px;padding-top:4px;font:600 22px/1.2 'Architects Daughter',cursive;color:var(--soft);text-align:right}
+.ev .tx{flex:1;min-width:0;display:block;padding:4px 10px 5px 10px;font:600 26px/1.2 'Patrick Hand',cursive;color:#1f2540;white-space:normal;overflow-wrap:anywhere;border-left:4px solid var(--c);border-radius:2px 8px 5px 9px;background:color-mix(in srgb,var(--c) 28%,transparent)}
+.ev.all .tm{font-size:19px}
+.wev .none{font:500 25px 'Architects Daughter',cursive;color:#a99a7c;padding-top:8px}
+/* ===== end NEW week styles ===== */
