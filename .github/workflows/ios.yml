@@ -8,6 +8,10 @@ name: iOS
 # The ipa is unsigned on purpose: unsigned means it can be installed with a
 # sideloading tool, not from the app store; signing needs a certificate and a
 # provisioning profile, which live in repository secrets and are not set up here.
+#
+# The actions are on their current majors, which declare node24.  The previous
+# majors still declared node20, which github removed in september 2026, so every
+# run carried two deprecation warnings about being forced onto node 24.
 on:
   push:
     branches: [main]
@@ -17,11 +21,15 @@ on:
 jobs:
   page:
     name: the page itself
-    runs-on: ubuntu-latest
+    # pinned rather than 'ubuntu-latest': that label migrates from ubuntu 24.04 to
+    # 26.04 between oct 19 and nov 19 2026, and a check that validates the page
+    # should not have the operating system changed underneath it by someone else.
+    # bump this deliberately, after a green run, when the new image is what we want.
+    runs-on: ubuntu-24.04
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v7
 
-      - uses: actions/setup-node@v4
+      - uses: actions/setup-node@v7
         with:
           node-version: "22"
           cache: npm
@@ -43,7 +51,7 @@ jobs:
     # the label needs bumping to the current macos-NN image.
     runs-on: macos-15
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v7
 
       - name: Install XcodeGen
         run: brew install xcodegen
@@ -100,7 +108,7 @@ jobs:
           zip -qry Leatherbound-unsigned.ipa Payload
           ls -la Leatherbound-unsigned.ipa
 
-      - uses: actions/upload-artifact@v4
+      - uses: actions/upload-artifact@v7
         with:
           name: Leatherbound-unsigned-ipa
           path: build/Leatherbound-unsigned.ipa
