@@ -138,6 +138,9 @@ check("the icons the page and the app bundle ask for exist", () => {
   const icon = path.join(ROOT, "ios/Leatherbound/Assets.xcassets/AppIcon.appiconset/AppIcon-1024.png");
   const buf = fs.readFileSync(icon);
   ok(buf.readUInt32BE(16) === 1024 && buf.readUInt32BE(20) === 1024, "the AppIcon master is 1024×1024");
+  /* colour type 2 is truecolour without alpha: an app icon with transparency is
+     rejected, and the mistake would only surface at submission time */
+  ok(buf[25] === 2, `the AppIcon master carries no alpha channel (png colour type ${buf[25]})`);
   const set = JSON.parse(fs.readFileSync(path.join(ROOT, "ios/Leatherbound/Assets.xcassets/AppIcon.appiconset/Contents.json"), "utf8"));
   ok(set.images.length === 1 && set.images[0].filename === "AppIcon-1024.png", "the iconset points at it");
   return "web favicon, touch icon, AppIcon";

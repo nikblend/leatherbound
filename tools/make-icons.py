@@ -122,7 +122,7 @@ def master():
     img = leather(MASTER)
     stitch_frame(img)
 
-    plate = torn_plate(round(MASTER * 0.58), round(MASTER * 0.62)).rotate(-2.4, expand=True, resample=Image.BICUBIC)
+    plate = torn_plate(round(MASTER * 0.66), round(MASTER * 0.70)).rotate(-2.4, expand=True, resample=Image.BICUBIC)
     px, py = (MASTER - plate.width) // 2, (MASTER - plate.height) // 2
 
     shadow = Image.new("RGBA", img.size, (0, 0, 0, 0))
@@ -131,10 +131,13 @@ def master():
     img.paste(plate, (px, py), plate)
 
     d = ImageDraw.Draw(img)
-    wobbly_ring(d, (MASTER * 0.30, MASTER * 0.28, MASTER * 0.70, MASTER * 0.72), VERMILION + (255,), round(MASTER * 0.019))
+    wobbly_ring(d, (MASTER * 0.285, MASTER * 0.265, MASTER * 0.715, MASTER * 0.735), VERMILION + (255,), round(MASTER * 0.034))
 
-    font = hand_font(round(MASTER * 0.30))
-    d.text((MASTER / 2, MASTER / 2 + MASTER * 0.005), "L", font=font, fill=INK + (255,), anchor="mm")
+    # The letter is written twice, a hair apart, the way a pen presses harder: down at
+    # 32px a single stroke of this hand is one grey pixel and reads as nothing.
+    font = hand_font(round(MASTER * 0.34))
+    for offset in (0, round(MASTER * 0.007)):
+        d.text((MASTER / 2 + offset, MASTER / 2 + MASTER * 0.005), "L", font=font, fill=INK + (255,), anchor="mm")
     return img.convert("RGB")
 
 

@@ -83,6 +83,13 @@ jobs:
           # the asset catalogue is what turns AppIcon-1024.png into the icon on the
           # home screen; if it did not compile, the app installs with a blank icon
           test -f "$APP/Assets.car" || { echo "the app icon did not compile into the bundle"; exit 1; }
+          INFO=$(xcrun --sdk iphoneos assetutil --info "$APP/Assets.car" 2>/dev/null || true)
+          if [ -n "$INFO" ]; then
+            echo "$INFO" | grep -q AppIcon || { echo "Assets.car holds no AppIcon:"; echo "$INFO" | head -40; exit 1; }
+            echo "the compiled catalogue names AppIcon"
+          else
+            echo "note: assetutil gave nothing, the icon name was not checked"
+          fi
 
       - name: Package the ipa
         run: |
