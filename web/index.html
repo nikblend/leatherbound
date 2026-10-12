@@ -61,11 +61,11 @@
   <section class="note" id="note" aria-label="Day notes">
     <div class="nh"><h2 id="nd" role="button" tabindex="0" title="Open this day"></h2><button class="x" id="close" aria-label="Close">&#10005;</button></div>
     <ul id="list"></ul>
-    <input id="txt" placeholder="Write something down…" maxlength="40" enterkeyhint="done" autocomplete="off">
+    <input id="txt" placeholder="Write something down…" maxlength="64" enterkeyhint="done" autocomplete="off">
     <div class="tmrow"><label for="tm">at</label><input type="text" id="tm" inputmode="numeric" placeholder="--:--" maxlength="8" autocomplete="off" spellcheck="false"><span id="tmhint">blank = all day</span></div>
     <div class="addrow">
       <div class="cols" id="cols"></div>
-      <button class="go" id="go">Add</button>
+      <div class="goRow"><button class="del" id="del" hidden>Remove</button><span class="warn" id="warn" hidden></span><button class="go" id="go">Add</button></div>
     </div>
   </section>
   <div class="cp" id="cp" role="dialog" aria-modal="true" aria-label="Colour">

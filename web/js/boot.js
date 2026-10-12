@@ -23,6 +23,9 @@ function tick(){
     var wasT=sel===lastDay;
     tY=n.getFullYear();tM=n.getMonth();tD=n.getDate();today=q;lastDay=q;
     if(wasT){A=new Date(tY,tM,tD);sel=q}      /* you were reading today: follow the new one */
+    /* the day changed under the sheet: nothing may be written over an entry of yesterday */
+    dropEditIfMoved();
+    if(note.classList.contains('open'))drawList();
     render(false);
     return;
   }
@@ -38,6 +41,7 @@ addEventListener('storage',function(e){
   if(!s||typeof s!=='object'||Array.isArray(s))s={};
   Object.keys(ev).forEach(function(q){if(!dirty[q]&&!s[q])delete ev[q]});
   Object.keys(s).forEach(function(q){if(!dirty[q])ev[q]=s[q]});
+  dropEditIfMoved();   /* another tab may have rewritten the entry the sheet is working over */
   render();if(note.classList.contains('open'))drawList();
 });
 render();

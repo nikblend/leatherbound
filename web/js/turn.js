@@ -1,8 +1,10 @@
 /* ===== turn.js — the iOS-style page curl and the month-strip gestures ===== */
-var curlOn=false,screenEl=document.querySelector('.screen');
+var curlOn=false,screenEl=document.querySelector('.screen'),pendingTurn=null;
 function shade(f){var q=f<1.5708;return [q?.3*Math.sin(f):0,q?.38*Math.exp(-Math.pow((f-1.15)/.22,2)):0]}
 function turnPage(dir,swap){
-  if(curlOn)return;
+  /* One tap, one page.  A tap that lands while a page is already curling used to be thrown
+     away; it is remembered instead, and turns when the paper comes to rest. */
+  if(curlOn){pendingTurn={dir:dir,swap:swap};return}
   if(V!=='month'||matchMedia('(prefers-reduced-motion:reduce)').matches){swap();return}
   curlOn=true;
   var tpl=mainEl.cloneNode(true),sl=sc.scrollLeft,mt=mainEl.scrollTop,Hh=mainEl.clientHeight,W=mainEl.clientWidth,flip=dir<0,N=12,PI=Math.PI,ov=document.createElement('div');
@@ -32,7 +34,7 @@ function turnPage(dir,swap){
     });
   }
   var t0=performance.now(),DUR=960;
-  (function tick(now){var t=Math.min(1,(now-t0)/DUR);frame(t);if(t<1)requestAnimationFrame(tick);else{ov.remove();curlOn=false}})(t0);
+  (function tick(now){var t=Math.min(1,(now-t0)/DUR);frame(t);if(t<1)requestAnimationFrame(tick);else{ov.remove();curlOn=false;var p=pendingTurn;pendingTurn=null;if(p)turnPage(p.dir,p.swap)}})(t0);
 }
 var dragX,startL,drag=false,moved=false;
 sc.addEventListener('mousedown',function(e){drag=true;moved=false;dragX=e.pageX;startL=sc.scrollLeft});

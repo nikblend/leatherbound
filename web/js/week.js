@@ -1,5 +1,5 @@
 /* ===== week.js — the week page ===== */
-var ws=document.getElementById('ws'),mainEl=document.querySelector('main'),WC=96,H0=6,HN=16;
+var ws=document.getElementById('ws'),mainEl=document.querySelector('main');
 /* NEW week view: one row per day, all-day items first, then timed items in order */
 function renderW(turn){
   var s0=new Date(A.getFullYear(),A.getMonth(),A.getDate()-A.getDay()),e0=new Date(s0.getFullYear(),s0.getMonth(),s0.getDate()+6),h='',i,base=new Date(tY,tM,tD);
@@ -8,7 +8,7 @@ function renderW(turn){
     E.sort(function(a,b){if(a.s==null&&b.s==null)return 0;if(a.s==null)return -1;if(b.s==null)return 1;return a.s-b.s});
     /* coarse school layer: courses and your notes in clock order, no times, no rooms */
     var r=rotOf(q),ro=r?SCHOOL.rot[r]:null,of=offOf(q),rows=[];
-    E.forEach(function(e){rows.push({s:e.s==null?-1:e.s,h:'<span class="ev'+(e.s==null?' all':'')+'" style="--c:'+COL[e.c]+'"><span class="tm">'+(e.s==null?'all day':fmt(e.s))+'</span><span class="tx">'+esc(e.t)+'</span></span>'})});
+    E.forEach(function(e){rows.push({s:e.s==null?-1:e.s,h:'<span class="ev'+(e.s==null?' all':'')+'" data-i="'+evIndex(q,e)+'" style="--c:'+COL[e.c]+'"><span class="tm">'+(e.s==null?'all day':fmt(e.s))+'</span><span class="tx">'+esc(e.t)+'</span></span>'})});
     if(ro)ro.forEach(function(p){rows.push({s:t2m(p[1]),h:'<span class="ev tt2"><span class="tm">P'+p[0]+'</span><span class="tx">'+esc(cInfo(p[3]).d)+'</span></span>'})});
     rows.sort(function(a,b){return a.s-b.s});
     var body=rows.map(function(x){return x.h}).join('')||(of?'<span class="ev tt2 offk"><span class="tm"></span><span class="tx">'+esc(OFFL[of]||of)+'</span></span>':'<span class="none">a clean page</span>');
@@ -20,8 +20,10 @@ function renderW(turn){
   document.getElementById('yr').textContent=s0.getFullYear();
   document.getElementById('back').hidden=has;
   if(turn)ws.scrollTop=0;
+  lift();
 }
-ws.addEventListener('click',function(e){var d=e.target.closest('[data-k]');if(d)openNote(d.dataset.k,false)});
+/* a written row opens for writing; a printed row opens the day it belongs to */
+ws.addEventListener('click',function(e){var t=e.target.closest('.ev[data-i]'),d=e.target.closest('[data-k]');if(d)openNote(d.dataset.k,false,t?+t.dataset.i:null)});
 var wx,wy,wl,wt,wdn=false,wm=false;
 ws.addEventListener('mousedown',function(e){wdn=true;wm=false;wx=e.pageX;wy=e.pageY;wl=ws.scrollLeft;wt=ws.scrollTop});
 addEventListener('mousemove',function(e){if(!wdn)return;var dx=e.pageX-wx,dy=e.pageY-wy;if(Math.abs(dx)+Math.abs(dy)>4)wm=true;ws.scrollLeft=wl-dx;ws.scrollTop=wt-dy});

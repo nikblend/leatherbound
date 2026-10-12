@@ -84,6 +84,14 @@ const dom = await JSDOM.fromFile(path.join(WEB, "index.html"), {
       static now() { return at; }
     };
     window.scrollTo = () => {};
+    /* jsdom has no matchMedia.  The page asks it whether the reader wants less motion
+       (curl the paper, or just turn it), so it has to answer, or the turn never starts. */
+    window.matchMedia = (media) => ({
+      media, matches: false, onchange: null,
+      addListener() {}, removeListener() {},
+      addEventListener() {}, removeEventListener() {},
+      dispatchEvent: () => false,
+    });
   },
 });
 const win = dom.window;
@@ -401,7 +409,7 @@ check("a note can be deleted again", () => {
   win.drawList();
   $("#list button").dispatchEvent(new win.MouseEvent("click", { bubbles: true }));
   eq(win.ev["2026-10-19"], undefined, "the day is empty again");
-  eq(text($("#list")), "", "the list is empty");
+  eq(text($("#list")), "a clean page", "the list says so instead of showing nothing at all");
   eq(win.load()["2026-10-19"], undefined, "and so is the disk");
   return "added, deleted, gone";
 });
@@ -433,6 +441,207 @@ check("the times people actually type are the times it reads", () => {
   eq(win.fmt(1240), "8:40 PM", "in the evening");
   return "9 shapes read, 7 rejected";
 });
+
+/* ============================== 6. working over an entry ============================== */
+section("opening an old entry and writing over it");
+
+const fire = (el, type = "click") => el.dispatchEvent(new win.MouseEvent(type, { bubbles: true }));
+const input = (el, value) => { el.value = value; el.dispatchEvent(new win.Event("input", { bubbles: true })); };
+const cellOf = (q) => $(`#grid .day[data-k="${q}"]`);
+const tabOf = (q, i) => cellOf(q).querySelector(`u[data-i="${i}"]`);
+
+/* write a note the way a person does: open the sheet on a day, fill it in, press Add */
+function noteOn(q, text, time) {
+  win.openNote(q, false);
+  input($("#txt"), text);
+  input($("#tm"), time || "");
+  fire($("#go"));
+}
+const EDITED = "2026-10-14";   /* a class day nobody has written on yet */
+
+check("tapping an entry opens the sheet over that entry, not over the day", () => {
+  win.setView("month");
+  win.Y = 2026; win.M = 9; win.A = new win.Date(2026, 9, 14);   /* October, where these checks live */
+  win.ev = {}; win.dirty = {}; win.render();
+  noteOn(EDITED, "Dentist", "3:30pm");
+  eq(win.ev[EDITED], [{ t: "Dentist", c: "a", s: 930 }], "the note is written");
+  fire(tabOf(EDITED, 0));
+  eq($("#txt").value, "Dentist", "the sheet holds the entry's words");
+  eq($("#tm").value, "3:30 PM", "and its time, written the way the page writes it");
+  eq(text($("#go")), "Done", "the button offers to finish, not to add");
+  eq($("#del").hidden, false, "and Remove is there to take it off the page");
+  ok(tabOf(EDITED, 0).classList.contains("lift"), "the entry lifts off the page while it is in the sheet");
+  ok($("#list li[data-i='0']").classList.contains("on"), "and the sheet's own list marks that line");
+  eq(win.document.activeElement.tagName, "BODY", "nothing is focused: the entry is shown before it is written over");
+  return "text, time, colour and the lifted tab all follow the entry";
+});
+
+check("Done writes the change back and puts the entry down again", () => {
+  input($("#txt"), "Dentist — Dr. Roy");
+  input($("#tm"), "4:15pm");
+  fire($("#go"));
+  eq(win.ev[EDITED], [{ t: "Dentist — Dr. Roy", c: "a", s: 975 }], "the notebook");
+  eq(win.ev[EDITED].length, 1, "entries edited, not added");
+  eq(text(tabOf(EDITED, 0)), "Dentist — Dr. Roy", "the page");
+  eq($("#note").classList.contains("open"), false, "the sheet closed");
+  eq($("#note").querySelectorAll(".lift").length + $$("main .lift").length, 0, "and nothing is left lifted");
+  eq(text($("#go")), "Add", "the sheet is ready to write a new note again");
+  return "corrected in place";
+});
+
+check("a colour tapped while editing recolours the entry, not your ink", () => {
+  fire(tabOf(EDITED, 0));
+  eq(win.pick, "a", "the ink you write with");
+  fire($$("#cols button")[1]);
+  eq(win.editCol, "b", "the entry's colour follows the tap");
+  eq(win.pick, "a", "and your ink is left where you had it");
+  eq(win.ev[EDITED][0].c, "a", "nothing is written until Done");
+  fire($("#go"));
+  eq(win.ev[EDITED][0].c, "b", "Done writes the new colour");
+  eq(win.pick, "a", "still your own ink");
+  return "the entry changes colour, the pen does not";
+});
+
+check("closing the sheet throws the draft away", () => {
+  fire(tabOf(EDITED, 0));
+  input($("#txt"), "something you thought better of");
+  fire($("#close"));
+  eq(win.ev[EDITED], [{ t: "Dentist — Dr. Roy", c: "b", s: 975 }], "the notebook");
+  eq(text(tabOf(EDITED, 0)), "Dentist — Dr. Roy", "and the page");
+  eq($("#txt").value, "", "the composer is empty again");
+  eq(win.editIdx, null, "and the sheet is writing a new note");
+  return "nothing half-written is ever filed";
+});
+
+check("a line that is not a time is refused, not quietly made all-day", () => {
+  fire(tabOf(EDITED, 0));
+  input($("#tm"), "banana");
+  fire($("#go"));
+  eq(win.ev[EDITED], [{ t: "Dentist — Dr. Roy", c: "b", s: 975 }], "nothing was written");
+  eq($("#note").classList.contains("open"), true, "the sheet stays open to be corrected");
+  ok($("#warn").textContent.includes("banana"), `the sheet says why (${text($("#warn"))})`);
+  ok($("#note").classList.contains("no"), "the paper refuses");
+  eq(text($("#tmhint")), "not a time", "and the time field says so too");
+  return "as all-day it would have gone missing silently";
+});
+
+check("an empty note is refused", () => {
+  input($("#tm"), "4:15pm");
+  input($("#txt"), "   ");
+  fire($("#go"));
+  eq(win.ev[EDITED], [{ t: "Dentist — Dr. Roy", c: "b", s: 975 }], "nothing was written");
+  ok($("#warn").textContent.includes("words"), `the sheet says why (${text($("#warn"))})`);
+  fire($("#close"));
+  return "an entry cannot be blanked by accident";
+});
+
+check("clearing the time makes an entry all day", () => {
+  fire(tabOf(EDITED, 0));
+  input($("#tm"), "");
+  fire($("#go"));
+  eq(win.ev[EDITED], [{ t: "Dentist — Dr. Roy", c: "b" }], "the time is gone and the note is not");
+  return "timed \u2194 all day either way";
+});
+
+check("removing the line above leaves the sheet writing over the same entry", () => {
+  noteOn(EDITED, "Bus pass", "7:45am");          /* second entry, appended after the first */
+  eq(win.ev[EDITED].map(e => e.t), ["Dentist — Dr. Roy", "Bus pass"], "two entries");
+  const busCol = win.ev[EDITED][1].c;              /* whatever colour it was written in */
+  fire($("#list li[data-i='1'] span"));           /* open the second one */
+  eq(win.editIdx, 1, "writing over the second entry");
+  fire($("#list li[data-i='0'] button"));         /* delete the first one underneath it */
+  eq(win.ev[EDITED].map(e => e.t), ["Bus pass"], "the first is gone");
+  eq(win.editIdx, 0, "and the sheet moved with its entry");
+  eq($("#txt").value, "Bus pass", "still holding the entry it started on");
+  input($("#txt"), "Bus pass (renewed)");
+  fire($("#go"));
+  eq(win.ev[EDITED], [{ t: "Bus pass (renewed)", c: busCol, s: 465 }], "Done wrote the entry that was being edited");
+  return "the entry that shifted was not the one overwritten";
+});
+
+check("Remove takes an entry off the page for good", () => {
+  fire(tabOf(EDITED, 0));
+  eq($("#del").hidden, false, "Remove is offered");
+  fire($("#del"));
+  eq(win.ev[EDITED], undefined, "the day is empty");
+  eq(win.load()[EDITED], undefined, "and so is the disk");
+  eq($("#note").classList.contains("open"), false, "the sheet closed");
+  eq($(`#grid .day[data-k="${EDITED}"] u`), null, "the page has no tab left");
+  return "removed, and stored";
+});
+
+check("the month cell prints entries by the clock, not by when they were written", () => {
+  noteOn(EDITED, "Permission slip");              /* all day, written first */
+  noteOn(EDITED, "Piano lesson", "4pm");          /* timed, written second */
+  eq(win.ev[EDITED].map(e => e.t), ["Permission slip", "Piano lesson"], "storage keeps the order they were written in");
+  eq([...cellOf(EDITED).querySelectorAll("u")].map(text), ["Piano lesson", "Permission slip"], "the cell reads by the clock");
+  eq([...cellOf(EDITED).querySelectorAll("u")].map(u => u.dataset.i), ["1", "0"], "and each tab still points at its own entry");
+  fire(tabOf(EDITED, 0));
+  eq($("#txt").value, "Permission slip", "so the second tab opens the all-day entry");
+  fire($("#close"));
+  return "display order and storage order are allowed to differ";
+});
+
+check("the sheet follows the page when it is asked for another day", () => {
+  win.goToDay(EDITED);
+  eq(win.V, "day", "the day page is up");
+  win.openNote(DAY, false);                       /* a different day, while the day page is up */
+  eq(win.k(win.A.getFullYear(), win.A.getMonth(), win.A.getDate()), DAY, "the page followed");
+  eq(text($("#nd")), "Tue, Oct 13", "and the sheet is showing that day, not the one the page left behind");
+  fire($("#close"));
+  return "no way to write a note onto the wrong day";
+});
+
+check("every page still agrees after all that", () => {
+  win.setView("week"); win.setView("day"); win.setView("year"); win.setView("month");
+  eq($$("#ws .wday").length, 7, "the week page is a week again");
+  eq($$("#grid .day").length, 35, "the month page is back with October on it");
+  eq(win.load()[EDITED].length, 2, "the notebook still holds the day's two entries");
+  return "four views, one notebook";
+});
+
+check("another tab rewriting the entry under the sheet makes it stand down", () => {
+  /* a planner on a phone lives in two places at once: the day it was written and the
+     day it is being written.  Another tab can delete the entry the sheet is over, and
+     the draft must not land on whatever moved into its place. */
+  win.Y = 2026; win.M = 9; win.render();
+  win.dirty = {};                                  /* accept the other tab's notebook */
+  fire(tabOf(EDITED, 1));
+  eq(win.editIdx, 1, "the sheet is working over the second entry");
+  const theirs = JSON.parse(JSON.stringify(win.ev));
+  theirs[EDITED] = [{ t: "Piano lesson", c: "a", s: 960 }];   /* the all-day one is gone */
+  win.dispatchEvent(new win.StorageEvent("storage", { key: "lb-ev2", newValue: JSON.stringify(theirs) }));
+  eq(win.ev[EDITED].length, 1, "the notebook took the other tab's version");
+  eq(win.editIdx, null, "and the sheet let go of the entry that moved");
+  eq($("#txt").value, "", "back to writing a new note");
+  fire($("#close"));
+  return "a draft never lands on the wrong entry";
+});
+
+/* The page turn runs on requestAnimationFrame, so this one has to be waited for.  It is
+   the last check because it leaves the page two months further on, mid-turn.
+   The clock is the module's own: the page's Date is pinned to a single minute. */
+await (async () => {
+  const name = "two taps as fast as a hand can make them turn two pages, not one";
+  try {
+    win.setView("month");
+    const before = win.Y * 12 + win.M;
+    win.go(1); win.go(1);
+    const started = Date.now();
+    let moved = 0;
+    for (;;) {
+      await new Promise(r => setTimeout(r, 25));
+      moved = win.Y * 12 + win.M - before;
+      if (!win.curlOn && !win.pendingTurn && moved === 2) break;
+      if (Date.now() - started > 15000) throw new Error(`15s later, the two taps had turned ${moved} page(s) (curling: ${win.curlOn})`);
+    }
+    passed++;
+    console.log(`  ok    ${name} — both taps turned, ${moved} pages`);
+  } catch (e) {
+    failed++;
+    console.log(`  FAIL  ${name}\n          ${e.message}`);
+  }
+})();
 
 /* ---------------------------------------------------------------------- result */
 console.log(`\n${failed ? "✗" : "✓"} ${passed} checks passed${failed ? `, ${failed} FAILED` : ""}\n`);

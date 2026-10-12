@@ -1,5 +1,8 @@
 /* ===== views.js — navigation: the arrows, the date button, switching views ===== */
-function go(delta){if(V==='year')return;if(V==='day'){A=new Date(A.getFullYear(),A.getMonth(),A.getDate()+delta);sel=k(A.getFullYear(),A.getMonth(),A.getDate());render(true);return}if(V==='week'){A=new Date(A.getFullYear(),A.getMonth(),A.getDate()+7*delta);render(true);return}var d=new Date(Y,M+delta,1);turnPage(delta,function(){Y=d.getFullYear();M=d.getMonth();render(false);sc.scrollLeft=0})}
+function go(delta){if(V==='year')return;if(V==='day'){A=new Date(A.getFullYear(),A.getMonth(),A.getDate()+delta);sel=k(A.getFullYear(),A.getMonth(),A.getDate());render(true);return}if(V==='week'){A=new Date(A.getFullYear(),A.getMonth(),A.getDate()+7*delta);render(true);return}
+/* the month is worked out when the page turns, not when the tap lands: a tap that waits its
+   turn behind a page already curling must turn from the month it will see, not the one it saw */
+turnPage(delta,function(){var d=new Date(Y,M+delta,1);Y=d.getFullYear();M=d.getMonth();render(false);sc.scrollLeft=0})}
 document.getElementById('prev').onclick=function(){go(-1)};
 document.getElementById('next').onclick=function(){go(1)};
 document.getElementById('back').onclick=function(){

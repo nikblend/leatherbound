@@ -27,7 +27,7 @@ function renderD(turn){
         tl+='<div class="tle rout" style="--c:#8a97ab"><span class="tt">'+fmt(zr.s)+'</span><span class="rail"><i></i></span><span class="tb"><span class="tx2"><span class="cn">'+esc(zr.n)+'</span></span></span></div>';
       }else{
         var en=it.e;
-        tl+='<div class="tle" data-k="'+q+'" style="--c:'+COL[en.c]+'"><span class="tt">'+fmt(en.s)+'</span><span class="rail"><i></i></span><span class="tb"><span class="tx">'+esc(en.t)+'</span></span></div>';
+        tl+='<div class="tle" data-k="'+q+'" data-i="'+evIndex(q,en)+'" style="--c:'+COL[en.c]+'"><span class="tt">'+fmt(en.s)+'</span><span class="rail"><i></i></span><span class="tb"><span class="tx">'+esc(en.t)+'</span></span></div>';
       }
     });
     if(isT&&!nd)tl+=nowRow;
@@ -38,7 +38,7 @@ function renderD(turn){
   if(!E.length&&!items.length&&!of){h+='<div class="dempty" data-k="'+q+'">Nothing planned yet.</div>'}
   var allH='';
   if(all.length){
-    allH='<div class="dsec"><div class="dsh">All day</div>'+all.map(function(e){return '<div class="dall" data-k="'+q+'" style="--c:'+COL[e.c]+'"><span class="tx">'+esc(e.t)+'</span></div>'}).join('')+'</div>';
+    allH='<div class="dsec"><div class="dsh">All day</div>'+all.map(function(e){return '<div class="dall" data-k="'+q+'" data-i="'+evIndex(q,e)+'" style="--c:'+COL[e.c]+'"><span class="tx">'+esc(e.t)+'</span></div>'}).join('')+'</div>';
   }
   h+=allH;
   h+='<div class="dfoot">Day '+doy+' of '+ylen+' \u00b7 Week '+isoWeek(d)+(SS.length?' \u00b7 JOUR '+rotOf(q):'')+' \u00b7 '+mo.name+'</div>';
@@ -48,10 +48,11 @@ function renderD(turn){
   document.getElementById('mn').textContent=d.toLocaleDateString('en',{weekday:'long'});
   document.getElementById('yr').textContent=d.toLocaleString('en',{month:'short'})+' '+d.getDate()+(y!==tY?', '+y:'');
   document.getElementById('back').hidden=isT;
+  lift();
 }
 (function(){
   var dv=document.getElementById('dv'),x0,y0;
-  dv.addEventListener('click',function(e){var t=e.target.closest('[data-k]');if(t)openNote(t.dataset.k,false)});
+  dv.addEventListener('click',function(e){var w=e.target.closest('[data-i]'),t=e.target.closest('[data-k]');if(t)openNote(t.dataset.k,false,w?+w.dataset.i:null)});
   dv.addEventListener('touchstart',function(e){var t=e.touches[0];x0=t.clientX;y0=t.clientY},{passive:true});
   dv.addEventListener('touchend',function(e){var t=e.changedTouches[0],dx=t.clientX-x0,dy=t.clientY-y0;if(Math.abs(dx)>70&&Math.abs(dx)>Math.abs(dy)*1.6)go(dx<0?1:-1)},{passive:true});
 })();

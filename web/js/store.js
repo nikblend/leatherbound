@@ -55,4 +55,8 @@ function save(){
     localStorage.setItem('lb-ev2',JSON.stringify(ev));
   }catch(e){}
 }
+/* Where an entry sits in the notebook.  The pages print entries in clock order, which is
+   not the order they were written in, so anything pointing back at an entry points at it
+   by identity — not at the position it happens to occupy on the page. */
+function evIndex(q,e){var a=ev[q];return a?a.indexOf(e):-1}
 

@@ -3,7 +3,10 @@ var colsEl=document.getElementById('cols'),cpEl=document.getElementById('cp'),cp
 var cpSw=document.getElementById('cpsw'),cpHex=document.getElementById('cphex'),sH=document.getElementById('cph'),sS=document.getElementById('cps'),sV=document.getElementById('cpv'),
     PRESETS=['#2f7d79','#41659a','#7c9a4e','#8b4f7d','#c9402c','#cf8a2a','#6b4a2f','#3d4150'];
 function drawCols(){
-  colsEl.innerHTML=PALORDER.map(function(q){return '<button style="--c:'+COL[q]+'" data-c="'+q+'"'+(q===pick?' class="on"':'')+' aria-label="Colour"></button>'}).join('')
+  /* while the sheet is working over an entry, the marked colour is that entry's; otherwise
+     it is the ink you are writing with */
+  var on=editIdx!=null?editCol:pick;
+  colsEl.innerHTML=PALORDER.map(function(q){return '<button style="--c:'+COL[q]+'" data-c="'+q+'"'+(q===on?' class="on"':'')+' aria-label="Colour"></button>'}).join('')
     +(PALORDER.length<10?'<button class="add" data-add="1" aria-label="Add a colour"></button>':'')
     +'<button class="edit" data-edit="1" aria-label="Edit selected colour"></button>';
 }
@@ -33,7 +36,7 @@ function cpClose(){cpEl.classList.remove('on');cpMode=null;cpHex.blur()}
 function cpSave(){
   if(!cpMode)return;
   var hx=hsv2hex(cH,cS,cV);
-  if(cpMode==='add'){if(PALORDER.length>=10){cpClose();return}var q='x'+Date.now().toString(36);COL[q]=hx;PALORDER.push(q);pick=q}else COL[cpMode]=hx;
+  if(cpMode==='add'){if(PALORDER.length>=10){cpClose();return}var q='x'+Date.now().toString(36);COL[q]=hx;PALORDER.push(q);if(editIdx!=null)editCol=q;else pick=q}else COL[cpMode]=hx;
   savePal();cpClose();drawCols();render();drawList();
 }
 [sH,sS,sV].forEach(function(el){el.addEventListener('input',function(){cH=+sH.value;cS=+sS.value;cV=+sV.value;cpPaint(true)})});
@@ -45,13 +48,16 @@ document.getElementById('cppre').addEventListener('click',function(e){var b=e.ta
 document.getElementById('cpsave').onclick=cpSave;
 document.getElementById('cpcancel').onclick=cpClose;
 document.getElementById('cprm').onclick=function(){
-  if(cpMode&&cpMode!=='add'&&PALORDER.length>1){var k0=cpMode;PALORDER=PALORDER.filter(function(q){return q!==k0});if(pick===k0)pick=PALORDER[0];savePal();cpClose();drawCols()}
+  if(cpMode&&cpMode!=='add'&&PALORDER.length>1){var k0=cpMode;PALORDER=PALORDER.filter(function(q){return q!==k0});if(pick===k0)pick=PALORDER[0];if(editCol===k0)editCol=PALORDER[0];savePal();cpClose();drawCols()}
 };
 cpEl.addEventListener('click',function(e){if(e.target===cpEl)cpClose()});
 colsEl.addEventListener('click',function(e){
   var b=e.target.closest('button');if(!b)return;
   if(b.dataset.add){cpOpen('add');return}
-  if(b.dataset.edit){cpOpen(pick);return}
+  if(b.dataset.edit){cpOpen(editIdx!=null?editCol:pick);return}
+  /* a colour tapped while the sheet is working over an entry recolours that entry; your own
+     ink is left where you had it */
+  if(editIdx!=null){editCol=b.dataset.c;drawCols();return}
   pick=b.dataset.c;drawCols();
 });
 drawCols();
